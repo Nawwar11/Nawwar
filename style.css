@@ -49,3 +49,10 @@ footer {
   color: #333;
   margin-top: 2rem;
 }
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 4px solid #2e7d32; /* matches your green theme */
+}
+

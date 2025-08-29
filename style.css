@@ -40,11 +40,18 @@ h2 {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Header Text */
+/* Header Text with Logo */
 .header-text {
   text-align: center;
   padding: 1rem 0 2rem 0;
   background: #f5fff7;
+}
+
+.header-text .logo {
+  width: 80px;       /* adjust size */
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;  /* centers logo and spacing */
 }
 
 .header-text h1 {
@@ -60,15 +67,24 @@ h2 {
 
 /* Main Content */
 main {
-  padding: 2rem;
   max-width: 1000px;
   margin: auto;
 }
 
+/* Section styles and background colors */
 section {
   margin-bottom: 3rem;
   text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 10px;
 }
+
+section:nth-of-type(1) { background: #ffffff; }   /* Products Title */
+section:nth-of-type(2) { background: #e8f5e9; }   /* Products */
+section:nth-of-type(3) { background: #f0fff4; }   /* Trust */
+section:nth-of-type(4) { background: #e8f5e9; }   /* Free Tester */
+section:nth-of-type(5) { background: #f0fff4; }   /* Experience */
+section:nth-of-type(6) { background: #e8f5e9; }   /* Contact */
 
 /* Products Section */
 .products {
@@ -98,9 +114,10 @@ section {
 footer {
   text-align: center;
   padding: 1rem;
-  background: #e8f5e9;
-  color: #333;
+  background: #2e7d32;
+  color: white;
   margin-top: 2rem;
 }
+
 
 

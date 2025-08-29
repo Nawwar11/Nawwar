@@ -51,11 +51,15 @@ footer {
 }
 
 /* Hero Banner */
+/* Hero Banner - responsive */
 .hero img {
-  width: 100%;
-  height: auto;
+  width: 100%;           /* full width */
+  max-height: 400px;     /* limit height */
+  object-fit: cover;     /* crop proportionally */
   display: block;
   border-bottom: 4px solid #2e7d32;
+}
+
 }
 
 /* Product Cards */

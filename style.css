@@ -50,14 +50,17 @@ footer {
   margin-top: 2rem;
 }
 
-/* Hero Banner */
-/* Hero Banner - responsive */
+/* Hero Banner - full image, scaled nicely */
 .hero img {
-  width: 100%;           /* full width */
-  max-height: 400px;     /* limit height */
-  object-fit: cover;     /* crop proportionally */
+  width: 100%;          /* full width of the container */
+  max-width: 1000px;    /* optional: max width so it doesn’t stretch too much on large screens */
+  height: auto;         /* keeps the image proportions */
   display: block;
+  margin: 20px auto;    /* centers image with some spacing above/below */
   border-bottom: 4px solid #2e7d32;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: subtle shadow for better look */
+}
+
 }
 
 }

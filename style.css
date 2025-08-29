@@ -19,6 +19,8 @@ a:hover {
 
 h2 {
   color: #2e7d32;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 /* Banner Section */
@@ -28,17 +30,17 @@ h2 {
 }
 
 .hero img {
-  width: 100%;          
-  height: auto;         
-  max-height: 300px;    
+  width: 100%;
+  height: auto;
+  max-height: 300px;
   display: block;
-  object-fit: contain;  
+  object-fit: contain;
   margin: 0 auto;
   border-bottom: 4px solid #2e7d32;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Header Text below the banner */
+/* Header Text */
 .header-text {
   text-align: center;
   padding: 1rem 0 2rem 0;
@@ -59,12 +61,37 @@ h2 {
 /* Main Content */
 main {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* Products Section */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  width: 200px;
+  text-align: center;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
 }
 
 /* Footer */

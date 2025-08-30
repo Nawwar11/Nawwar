@@ -1,33 +1,38 @@
 /* Global styles */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; line-height: 1.6; background: #fafafa; color: #333; }
+body { font-family: 'Montserrat', sans-serif; line-height: 1.6; background: #fafafa; color: #333; }
 
 /* Navbar */
 nav { background: #111; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
-nav .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
-nav ul { display: flex; list-style: none; }
+nav .logo { font-size: 1.5rem; font-weight: 600; letter-spacing: 2px; }
+nav ul { display: flex; list-style: none; transition: 0.3s; }
 nav ul li { margin-left: 20px; }
 nav ul li a { color: #fff; text-decoration: none; transition: 0.3s; }
 nav ul li a:hover { color: #f4a261; }
+.hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
 /* Banner */
 .banner { background: url('banner.jpg') center/cover no-repeat; height: 70vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative; }
 .banner::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); }
 .banner-content { position: relative; z-index: 2; }
 .banner h1 { font-size: 3rem; margin-bottom: 20px; }
-.banner p { font-size: 1.2rem; }
+.banner p { font-size: 1.2rem; margin-bottom: 20px; }
+.banner .btn { background: #f4a261; color: #111; font-weight: bold; }
 
 /* Products */
 .products { padding: 4rem 2rem; text-align: center; }
 .products h2 { margin-bottom: 2rem; font-size: 2rem; }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-.product { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
+.product { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.3s; position: relative; }
 .product:hover { transform: translateY(-5px); }
 .product img { width: 100%; border-radius: 10px; }
 .product h3 { margin: 1rem 0; }
 .product p { margin: 0.5rem 0; }
 .btn { display: inline-block; padding: 10px 20px; background: #111; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s; }
 .btn:hover { background: #f4a261; }
+
+/* Discount badge */
+.badge { position: absolute; top: 10px; left: 10px; background: red; color: white; padding: 5px 10px; font-size: 0.9rem; font-weight: bold; border-radius: 5px; }
 
 /* Sections */
 .section { padding: 3rem 2rem; text-align: center; }
@@ -38,12 +43,13 @@ footer { background: #111; color: #fff; text-align: center; padding: 2rem; }
 footer .socials a { margin: 0 10px; color: #fff; text-decoration: none; font-size: 1.2rem; }
 footer .socials a:hover { color: #f4a261; }
 
+/* Animations */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
 /* Responsive */
 @media(max-width:768px) {
-  .banner h1 { font-size: 2rem; }
-  nav ul { flex-direction: column; position: absolute; top: 100%; right: 0; background: #111; display: none; }
+  .hamburger { display: block; }
+  nav ul { flex-direction: column; position: absolute; top: 100%; right: 0; background: #111; width: 200px; display: none; }
   nav ul.active { display: flex; }
 }
-
-
-

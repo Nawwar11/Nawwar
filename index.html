@@ -4,109 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nawwar Perfumes – Shine With Us</title>
-  <meta name="description" content="Discover Nawwar perfumes – Rose Essence, Vanilla Bloom, and Citrus Splash. Enjoy 20% off, free tester bottles, and authentic scents.">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Nawwar Perfumes – Shine With Us">
-  <meta property="og:description" content="Luxury perfumes at affordable prices. 20% OFF now!">
-  <meta property="og:image" content="banner.jpg">
-  <meta property="og:url" content="https://nawwar11.netlify.app/">
-  <meta property="og:type" content="website">
-
-  <!-- Favicon -->
+  <!-- ✅ Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <!-- Navbar -->
-  <nav>
+  <header>
     <div class="logo">Nawwar</div>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-    <ul id="menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <nav id="navbar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="menu-toggle">☰</button>
+    </nav>
+  </header>
 
-  <!-- Banner -->
-  <section class="banner" id="home">
-    <div class="banner-content">
-      <h1>Shine With Nawwar</h1>
-      <p>A fresh beginning online – perfumes with authenticity.</p>
-      <a href="#products" class="btn">Shop Now</a>
-    </div>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Shine with us — A Fresh Beginning Online</h1>
+    <p>Discover Nawwar perfumes with elegance and trust.</p>
+    <a href="#products" class="cta-btn">Shop Now</a>
   </section>
 
   <!-- Products -->
-  <section class="products" id="products">
-    <h2>Our Products</h2>
+  <section id="products" class="products">
+    <h2>Our Collection</h2>
     <div class="product-grid">
-      <div class="product fade-in">
-        <div class="badge">-20%</div>
-        <img src="rose.jpg" alt="Rose Essence Perfume">
+      <div class="product-card">
+        <img src="rose.jpg" alt="Rose Essence perfume bottle">
+        <div class="discount-badge">20% OFF</div>
         <h3>Rose Essence</h3>
-        <p>$25 – Female</p>
-        <a href="#" class="btn">Buy Now</a>
+        <p>$40 – For Women</p>
+        <button>Buy Now</button>
       </div>
-      <div class="product fade-in">
-        <div class="badge">-20%</div>
-        <img src="vanilla.jpg" alt="Vanilla Bloom Perfume">
+      <div class="product-card">
+        <img src="vanilla.jpg" alt="Vanilla Bloom perfume bottle">
+        <div class="discount-badge">20% OFF</div>
         <h3>Vanilla Bloom</h3>
-        <p>$30 – Unisex</p>
-        <a href="#" class="btn">Buy Now</a>
+        <p>$35 – Unisex</p>
+        <button>Buy Now</button>
       </div>
-      <div class="product fade-in">
-        <div class="badge">-20%</div>
-        <img src="citrus.jpg" alt="Citrus Splash Perfume">
+      <div class="product-card">
+        <img src="citrus.jpg" alt="Citrus Splash perfume bottle">
+        <div class="discount-badge">20% OFF</div>
         <h3>Citrus Splash</h3>
-        <p>$20 – Male</p>
-        <a href="#" class="btn">Buy Now</a>
+        <p>$30 – For Men</p>
+        <button>Buy Now</button>
       </div>
     </div>
   </section>
 
-  <!-- Why Trust Us -->
-  <section class="section fade-in">
+  <!-- About Section -->
+  <section id="about" class="about">
     <h2>Why Trust Us</h2>
-    <p>We provide 100% authentic fragrances with guaranteed quality and long-lasting freshness.</p>
+    <p>With years of experience and countless satisfied customers, Nawwar perfumes bring elegance and authenticity. Try a free tester bottle and feel the difference.</p>
   </section>
 
-  <!-- Free Tester -->
-  <section class="section fade-in">
-    <h2>Free Tester Bottle</h2>
-    <p>Order now and get a free tester bottle with every purchase. Limited time only!</p>
-  </section>
-
-  <!-- About -->
-  <section class="section fade-in" id="about">
-    <h2>Our Experience</h2>
-    <p>With years of expertise in perfumes, Nawwar blends tradition with modern scents for everyone.</p>
-  </section>
-
-  <!-- Contact -->
-  <section class="section fade-in" id="contact">
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:info@nawwar.com">info@nawwar.com</a></p>
+    <p>Email: info@nawwarperfumes.com</p>
+    <p>Phone: +20 123 456 789</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Nawwar Perfumes. All rights reserved.</p>
+    <p>© 2025 Nawwar Perfumes. All rights reserved.</p>
     <div class="socials">
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">WhatsApp</a>
+      <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Script for mobile menu -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
 

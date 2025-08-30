@@ -57,28 +57,36 @@ nav .nav-links a:hover {
   color: #fff;
 }
 
-/* Mobile Styles */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
+  /* Hide nav links by default */
   nav .nav-links {
     display: none;
     flex-direction: column;
-    background-color: black;
+    background-color: black; /* menu background */
     width: 100%;
     position: absolute;
-    top: 100%;
+    top: 100%; /* below navbar */
     left: 0;
     padding: 10px 0;
+    gap: 0; /* remove desktop gap */
+    z-index: 999;
   }
 
+  /* Show nav links when active */
   nav .nav-links.active {
-    display: flex; /* show menu when active */
+    display: flex;
   }
 
+  /* Show hamburger */
   .hamburger {
     display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #fff;
+  }
+
+  /* Optional: style links for mobile */
+  nav .nav-links li {
+    text-align: center;
+    margin: 10px 0;
   }
 }
 

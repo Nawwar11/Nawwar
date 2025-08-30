@@ -7,28 +7,27 @@ body {
   color: #2c2c2c;
 }
 
-/* Navbar */
+/* ===== NAVBAR ===== */
 nav {
+  position: fixed;
   width: 100%;
-  background-color: black;  /* luxury black */
-  transition: top 0.3s;     /* optional smooth hover effects */
-  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.9);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0 2rem;
+  height: 60px;
+  z-index: 1000;
 }
 
 /* Logo */
 nav .logo {
-  background: rgba(0, 0, 0, 0.3); /* dark overlay behind text */
-  border-radius: 5px;
-  padding: 5px 10px;
-}
-
-nav .logo img {
-  height: 50px; /* adjust as needed */
-  width: auto;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 /* Nav Links */
@@ -37,77 +36,35 @@ nav .nav-links {
   display: flex;
   gap: 1.5rem;
 }
-
 nav .nav-links a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
 }
-
 nav .nav-links a:hover {
-  color: #d4a373; /* highlight color */
+  color: #d4a373;
 }
 
 /* Hamburger */
 .hamburger {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #fff;
 }
-
-/* ===== MOBILE NAVBAR ===== */
-@media (max-width: 768px) {
-  /* Hide nav links by default on mobile */
-  nav .nav-links {
-    display: none;          /* hidden initially */
-    flex-direction: column; /* stack links vertically */
-    gap: 1rem;
-    background-color: black; /* or rgba for transparency */
-    width: 100%;
-    position: absolute;
-    top: 60px;              /* below navbar */
-    left: 0;
-    padding: 1rem 0;
-    z-index: 999;
-  }
-
-  /* Show nav links when hamburger clicked */
-  nav .nav-links.active {
-    display: flex;
-  }
-
-  /* Hamburger visible on mobile */
-  .hamburger {
-    display: block;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #fff;
-  }
-
-  /* Optional: adjust nav link spacing */
-  nav .nav-links li {
-    text-align: center;
-    margin: 10px 0;
-  }
-}
-
-  }
-}
-
 
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;
   width: 100%;
-  height: 70vh; /* desktop height */
-  min-height: 60vh; /* prevent too short on mobile */
+  height: 70vh;
+  min-height: 60vh;
   background: url('banner.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px; /* offset for navbar */
+  padding-top: 60px; /* offset for fixed navbar */
 }
 
 .hero .overlay {
@@ -120,11 +77,11 @@ nav .nav-links a:hover {
   align-items: center;
   text-align: center;
   color: #fff;
-  padding: 0 2rem; /* extra padding for mobile */
+  padding: 0 2rem;
 }
 
 .hero h1 {
-  font-size: 2.8rem; /* desktop */
+  font-size: 2.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -145,43 +102,38 @@ nav .nav-links a:hover {
   transform: scale(1.05);
 }
 
-/* ===== FADE-IN SECTIONS ===== */
-section {
-  padding: 4rem 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8);
-  border-top: 1px solid rgba(0,0,0,0.05);
-}
-section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 1024px) {
-  .hero {
-    height: 60vh;
-    padding-top: 70px;
-  }
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-  .hero .cta-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 1rem;
-  }
-}
-
+/* ===== MOBILE NAVBAR ===== */
 @media (max-width: 768px) {
+  /* Hamburger visible */
+  .hamburger {
+    display: block;
+  }
+
+  /* Hide nav links initially */
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(0,0,0,0.95);
+    width: 100%;
+    position: absolute;
+    top: 60px; /* below navbar */
+    left: 0;
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  /* Show nav links when active */
+  nav .nav-links.active {
+    display: flex;
+  }
+
+  nav .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  /* Hero adjustments for mobile */
   .hero {
     height: 55vh;
     padding-top: 60px;
@@ -198,6 +150,7 @@ h2 {
   }
 }
 
+/* ===== SMALL MOBILE ===== */
 @media (max-width: 480px) {
   .hero {
     height: 50vh;

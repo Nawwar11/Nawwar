@@ -70,12 +70,15 @@ nav .nav-links a:hover {
     padding: 10px 0;
   }
 
-  nav .nav-links.show {
-    display: flex;
+  nav .nav-links.active {
+    display: flex; /* show menu when active */
   }
 
   .hamburger {
     display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #fff;
   }
 }
 

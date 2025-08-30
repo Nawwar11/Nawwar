@@ -14,7 +14,7 @@ nav {
   align-items: center;
   padding: 1rem 2rem;
   background-color: rgba(0, 0, 0, 0.85);
-  position: relative; /* non-sticky */
+  position: relative;
   z-index: 1000;
 }
 
@@ -66,6 +66,8 @@ nav .nav-links a:hover {
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
     padding: 1rem 0;
+    gap: 1rem;
+    text-align: center;
   }
 
   nav .nav-links.active {
@@ -74,7 +76,6 @@ nav .nav-links a:hover {
 
   nav .nav-links li {
     margin: 0.5rem 0;
-    text-align: center;
   }
 }
 
@@ -123,14 +124,17 @@ nav .nav-links a:hover {
   transform: scale(1.05);
 }
 
-/* Adjust Hero for Mobile */
-@media (max-width: 768px) {
+/* Hero Responsive Adjustments */
+@media(max-width: 768px){
+  .hero {
+    height: 50vh;
+    background-position: center top;
+  }
   .hero h1 {
     font-size: 1.8rem;
   }
   .hero .cta-btn {
     padding: 0.6rem 1.5rem;
-    font-size: 0.95rem;
   }
 }
 
@@ -164,6 +168,7 @@ h2 {
   gap: 1.8rem;
   padding: 0 1rem;
 }
+
 .product-card {
   background: #fff;
   border-radius: 12px;
@@ -173,10 +178,12 @@ h2 {
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
+
 .product-card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
+
 .product-card img {
   width: 100%;
   height: 200px;
@@ -184,19 +191,23 @@ h2 {
   border-radius: 10px;
   margin-bottom: 0.8rem;
 }
+
 .product-card h3 {
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
+
 .product-card p {
   font-size: 1rem;
   margin: 0.3rem 0;
 }
+
 .discount {
   color: #e53935;
   font-weight: bold;
   margin-left: 0.5rem;
 }
+
 .buy-btn {
   margin-top: 0.8rem;
   padding: 0.5rem 1.2rem;
@@ -208,6 +219,7 @@ h2 {
   font-weight: 500;
   transition: 0.3s;
 }
+
 .buy-btn:hover {
   background-color: #b48a78;
   transform: scale(1.05);
@@ -237,20 +249,4 @@ footer {
   color: #fff;
   font-weight: 500;
 }
-
-/* Additional Responsive Adjustments */
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.5rem;
-  }
-  .hero .cta-btn {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
-  }
-  nav {
-    padding: 0.8rem 1rem;
-  }
-}
-
-
 

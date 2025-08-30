@@ -27,4 +27,18 @@ const fadeInOnScroll = () => {
 };
 window.addEventListener('scroll', fadeInOnScroll);
 window.addEventListener('load', fadeInOnScroll);
+let lastScroll = 0;
+const nav = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    // Scrolling down
+    nav.style.top = '-80px'; // hides the navbar
+  } else {
+    // Scrolling up
+    nav.style.top = '0';
+  }
+  lastScroll = currentScroll;
+});
 

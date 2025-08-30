@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nawwar Perfumes – Shine With Us</title>
   <meta name="description" content="Discover Nawwar perfumes – Rose Essence, Vanilla Bloom, and Citrus Splash. Enjoy 20% off, free tester bottles, and authentic scents.">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nawwar Perfumes – Shine With Us">
+  <meta property="og:description" content="Luxury perfumes at affordable prices. 20% OFF now!">
+  <meta property="og:image" content="banner.jpg">
+  <meta property="og:url" content="https://nawwar11.netlify.app/">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,7 +26,8 @@
   <!-- Navbar -->
   <nav>
     <div class="logo">Nawwar</div>
-    <ul>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <ul id="menu">
       <li><a href="#home">Home</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#about">About</a></li>
@@ -25,6 +40,7 @@
     <div class="banner-content">
       <h1>Shine With Nawwar</h1>
       <p>A fresh beginning online – perfumes with authenticity.</p>
+      <a href="#products" class="btn">Shop Now</a>
     </div>
   </section>
 
@@ -32,19 +48,22 @@
   <section class="products" id="products">
     <h2>Our Products</h2>
     <div class="product-grid">
-      <div class="product">
+      <div class="product fade-in">
+        <div class="badge">-20%</div>
         <img src="rose.jpg" alt="Rose Essence Perfume">
         <h3>Rose Essence</h3>
         <p>$25 – Female</p>
         <a href="#" class="btn">Buy Now</a>
       </div>
-      <div class="product">
+      <div class="product fade-in">
+        <div class="badge">-20%</div>
         <img src="vanilla.jpg" alt="Vanilla Bloom Perfume">
         <h3>Vanilla Bloom</h3>
         <p>$30 – Unisex</p>
         <a href="#" class="btn">Buy Now</a>
       </div>
-      <div class="product">
+      <div class="product fade-in">
+        <div class="badge">-20%</div>
         <img src="citrus.jpg" alt="Citrus Splash Perfume">
         <h3>Citrus Splash</h3>
         <p>$20 – Male</p>
@@ -54,25 +73,25 @@
   </section>
 
   <!-- Why Trust Us -->
-  <section class="section">
+  <section class="section fade-in">
     <h2>Why Trust Us</h2>
     <p>We provide 100% authentic fragrances with guaranteed quality and long-lasting freshness.</p>
   </section>
 
   <!-- Free Tester -->
-  <section class="section">
+  <section class="section fade-in">
     <h2>Free Tester Bottle</h2>
     <p>Order now and get a free tester bottle with every purchase. Limited time only!</p>
   </section>
 
   <!-- About -->
-  <section class="section" id="about">
+  <section class="section fade-in" id="about">
     <h2>Our Experience</h2>
     <p>With years of expertise in perfumes, Nawwar blends tradition with modern scents for everyone.</p>
   </section>
 
   <!-- Contact -->
-  <section class="section" id="contact">
+  <section class="section fade-in" id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:info@nawwar.com">info@nawwar.com</a></p>
   </section>
@@ -87,6 +106,8 @@
     </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
+
 

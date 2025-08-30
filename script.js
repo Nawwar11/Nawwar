@@ -1,15 +1,7 @@
 // Mobile menu toggle
-function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
-}
+const menuToggle = document.getElementById('menu-toggle');
+const navbar = document.getElementById('navbar');
 
-// Fade-in on scroll
-const faders = document.querySelectorAll(".fade-in");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
+menuToggle.addEventListener('click', () => {
+  navbar.classList.toggle('open');
 });
-faders.forEach(el => observer.observe(el));

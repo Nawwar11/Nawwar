@@ -1,116 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nawwar Perfumes – Luxury You Deserve</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nawwar Perfumes – Luxury for Women, Men & Unisex</title>
+  <meta name="description" content="Nawwar Perfumes – Luxury perfumes for Women, Men, and Unisex with premium quality at fair EGP prices.">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Nawwar Perfumes – Luxury You Deserve" />
+  <meta property="og:description" content="Luxury perfumes for Women, Men, and Unisex with premium quality." />
+  <meta property="og:image" content="banner.jpg" />
+  <meta property="og:url" content="https://nawwar11.netlify.app/" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Navbar -->
-  <header>
+  <nav>
     <div class="logo">Nawwar</div>
-    <nav id="navbar">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#women">For Women</a></li>
-        <li><a href="#men">For Men</a></li>
-        <li><a href="#unisex">Unisex</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="menu-toggle">☰</button>
-    </nav>
-  </header>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger">☰</div>
+  </nav>
 
-  <!-- Hero / Banner -->
+  <!-- Hero Banner -->
   <section id="home" class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Shine with Nawwar Perfumes</h1>
-      <p>Elegance, luxury, and trust in every drop.</p>
-      <a href="#women" class="cta-btn">Explore Collection</a>
+    <div class="overlay">
+      <h1>Elegance, luxury, and trust in every drop.</h1>
+      <a href="#products" class="cta-btn">Shop Now</a>
     </div>
   </section>
 
-  <!-- Women Section -->
-  <section id="women" class="products">
-    <h2>Perfumes for Women</h2>
+  <!-- Products Section -->
+  <section id="products">
+    <h2>Women</h2>
     <div class="product-grid">
-      <div class="product-card"><img src="rose.jpg" alt="Rose Essence"><div class="discount-badge">20% OFF</div><h3>Rose Essence</h3><p>EGP 1200</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="jasmine.jpg" alt="Jasmine Bloom"><div class="discount-badge">15% OFF</div><h3>Jasmine Bloom</h3><p>EGP 950</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="lavender.jpg" alt="Lavender Dream"><div class="discount-badge">10% OFF</div><h3>Lavender Dream</h3><p>EGP 1100</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="musk.jpg" alt="Velvet Musk"><div class="discount-badge">30% OFF</div><h3>Velvet Musk</h3><p>EGP 1400</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="pearl.jpg" alt="Pearl Whisper"><div class="discount-badge">18% OFF</div><h3>Pearl Whisper</h3><p>EGP 1300</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="orchid.jpg" alt="Orchid Charm"><div class="discount-badge">25% OFF</div><h3>Orchid Charm</h3><p>EGP 1250</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="ruby.jpg" alt="Ruby Flame"><div class="discount-badge">20% OFF</div><h3>Ruby Flame</h3><p>EGP 1500</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="vanilla.jpg" alt="Vanilla Kiss"><div class="discount-badge">15% OFF</div><h3>Vanilla Kiss</h3><p>EGP 1050</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="blossom.jpg" alt="Spring Blossom"><div class="discount-badge">10% OFF</div><h3>Spring Blossom</h3><p>EGP 980</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="diamond.jpg" alt="Diamond Mist"><div class="discount-badge">22% OFF</div><h3>Diamond Mist</h3><p>EGP 1600</p><button>Buy Now</button></div>
+      <!-- Example Product -->
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x400?text=Women+Perfume+1" alt="Women Perfume 1">
+        <h3>Rose Essence</h3>
+        <p>EGP 750 <span class="discount">-20%</span></p>
+        <button class="buy-btn">Buy Now – Fast Delivery</button>
+      </div>
+      <!-- Repeat for all 10 women products -->
     </div>
-  </section>
 
-  <!-- Men Section -->
-  <section id="men" class="products">
-    <h2>Perfumes for Men</h2>
+    <h2>Men</h2>
     <div class="product-grid">
-      <div class="product-card"><img src="oud.jpg" alt="Royal Oud"><div class="discount-badge">25% OFF</div><h3>Royal Oud</h3><p>EGP 1500</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="citrus.jpg" alt="Citrus Splash"><div class="discount-badge">10% OFF</div><h3>Citrus Splash</h3><p>EGP 800</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="cedar.jpg" alt="Cedar Storm"><div class="discount-badge">15% OFF</div><h3>Cedar Storm</h3><p>EGP 950</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="amberwood.jpg" alt="Amberwood"><div class="discount-badge">20% OFF</div><h3>Amberwood</h3><p>EGP 1300</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="marine.jpg" alt="Marine Wave"><div class="discount-badge">12% OFF</div><h3>Marine Wave</h3><p>EGP 1100</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="spice.jpg" alt="Spice Legend"><div class="discount-badge">18% OFF</div><h3>Spice Legend</h3><p>EGP 1250</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="night.jpg" alt="Midnight King"><div class="discount-badge">30% OFF</div><h3>Midnight King</h3><p>EGP 1550</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="sandal.jpg" alt="Sandal Power"><div class="discount-badge">22% OFF</div><h3>Sandal Power</h3><p>EGP 1450</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="forest.jpg" alt="Forest Deep"><div class="discount-badge">15% OFF</div><h3>Forest Deep</h3><p>EGP 1200</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="iron.jpg" alt="Iron Valor"><div class="discount-badge">10% OFF</div><h3>Iron Valor</h3><p>EGP 1000</p><button>Buy Now</button></div>
+      <!-- Repeat 10 male products -->
     </div>
-  </section>
 
-  <!-- Unisex Section -->
-  <section id="unisex" class="products">
-    <h2>Unisex Perfumes</h2>
+    <h2>Unisex</h2>
     <div class="product-grid">
-      <div class="product-card"><img src="amber.jpg" alt="Amber Night"><div class="discount-badge">15% OFF</div><h3>Amber Night</h3><p>EGP 1100</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="cocoa.jpg" alt="Cocoa Luxe"><div class="discount-badge">20% OFF</div><h3>Cocoa Luxe</h3><p>EGP 1250</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="green.jpg" alt="Green Aura"><div class="discount-badge">12% OFF</div><h3>Green Aura</h3><p>EGP 950</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="floral.jpg" alt="Floral Glow"><div class="discount-badge">18% OFF</div><h3>Floral Glow</h3><p>EGP 1050</p><button>Buy Now</button></div>
-      <div class="product-card"><img src="smoke.jpg" alt="Smoky Soul"><div class="discount-badge">25% OFF</div><h3>Smoky Soul</h3><p>EGP 1400</p><button>Buy Now</button></div>
+      <!-- Repeat 5 unisex products -->
     </div>
   </section>
 
-  <!-- About -->
-  <section id="about" class="about">
-    <h2>Why Choose Nawwar</h2>
-    <p>Luxury perfumes crafted with passion and authenticity. Our mission is to bring elegance at fair prices. Every perfume is made with premium ingredients, tested and trusted by thousands.</p>
+  <!-- About / Trust Section -->
+  <section id="about">
+    <h2>Why Trust Us</h2>
+    <p>We deliver authentic, luxurious perfumes with premium quality.</p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="contact">
+  <!-- Contact Section -->
+  <section id="contact">
     <h2>Contact Us</h2>
-    <p>Email: info@nawwarperfumes.com</p>
-    <p>Phone: +20 123 456 789</p>
+    <p>Email: contact@nawwar.com</p>
+    <p>Phone: +20 123 456 7890</p>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 Nawwar Perfumes. All rights reserved.</p>
-    <div class="socials">
-      <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a>
-    </div>
+    <p>&copy; 2025 Nawwar Perfumes. All rights reserved.</p>
   </footer>
 
-  <!-- Script -->
-  <script src="script.js"></script>
+  <!-- JS -->
+  <script src="script.js" defer></script>
 </body>
 </html>
-
-

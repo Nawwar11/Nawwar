@@ -1,4 +1,4 @@
-// Hamburger Menu
+// ===== HAMBURGER MENU =====
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
@@ -7,7 +7,7 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
 });
 
-// Smooth Scroll
+// ===== SMOOTH SCROLL =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -16,8 +16,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Fade-in Sections on Scroll
+// ===== FADE-IN SECTIONS ON SCROLL =====
 const sections = document.querySelectorAll('section');
+
 const fadeInOnScroll = () => {
   sections.forEach(section => {
     if(section.getBoundingClientRect().top < window.innerHeight - 100){
@@ -25,20 +26,26 @@ const fadeInOnScroll = () => {
     }
   });
 };
+
 window.addEventListener('scroll', fadeInOnScroll);
 window.addEventListener('load', fadeInOnScroll);
+
+// ===== MOBILE NAVBAR HIDE/SHOW =====
 let lastScroll = 0;
 const nav = document.querySelector('nav');
 
 window.addEventListener('scroll', () => {
-  const currentScroll = window.pageYOffset;
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    // Scrolling down
-    nav.style.top = '-80px'; // hides the navbar
+  if (window.innerWidth <= 768) { // mobile only
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > lastScroll && currentScroll > 50) {
+      nav.style.top = '-80px'; // hide navbar
+    } else {
+      nav.style.top = '0'; // show navbar
+    }
+    lastScroll = currentScroll;
   } else {
-    // Scrolling up
-    nav.style.top = '0';
+    nav.style.top = '0'; // always visible on desktop
   }
-  lastScroll = currentScroll;
 });
+
 

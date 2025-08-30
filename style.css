@@ -7,10 +7,7 @@ body {
   background: #fff;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+a { text-decoration: none; color: inherit; }
 
 /* Navbar */
 header {
@@ -25,10 +22,7 @@ header {
   z-index: 1000;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
+.logo { font-size: 1.5rem; font-weight: 600; }
 
 nav ul {
   display: flex;
@@ -41,10 +35,7 @@ nav a {
   font-weight: 500;
   transition: color 0.3s;
 }
-
-nav a:hover {
-  color: #f4b400;
-}
+nav a:hover { color: #f4b400; }
 
 #menu-toggle {
   display: none;
@@ -54,17 +45,15 @@ nav a:hover {
   font-size: 1.5rem;
 }
 
-/* Hero */
+/* Hero / Banner */
 .hero {
-  background: url('hero.jpg') center/cover no-repeat;
+  /* ⬇️ switched to banner.jpg */
+  background: url('banner.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
   padding: 5rem 2rem;
 }
-
-.hero h1 {
-  font-size: 2.5rem;
-}
+.hero h1 { font-size: 2.5rem; }
 
 .cta-btn {
   display: inline-block;
@@ -76,16 +65,10 @@ nav a:hover {
   font-weight: bold;
   transition: background 0.3s;
 }
-
-.cta-btn:hover {
-  background: #d99900;
-}
+.cta-btn:hover { background: #d99900; }
 
 /* Products */
-.products {
-  padding: 3rem 2rem;
-  text-align: center;
-}
+.products { padding: 3rem 2rem; text-align: center; }
 
 .product-grid {
   display: grid;
@@ -102,10 +85,7 @@ nav a:hover {
   background: #fff;
   transition: transform 0.3s;
 }
-
-.product-card:hover {
-  transform: translateY(-5px);
-}
+.product-card:hover { transform: translateY(-5px); }
 
 .product-card img {
   max-width: 100%;
@@ -133,24 +113,13 @@ button {
   cursor: pointer;
   transition: background 0.3s;
 }
-
-button:hover {
-  background: #f4b400;
-  color: #222;
-}
+button:hover { background: #f4b400; color: #222; }
 
 /* About */
-.about {
-  padding: 3rem 2rem;
-  background: #f9f9f9;
-  text-align: center;
-}
+.about { padding: 3rem 2rem; background: #f9f9f9; text-align: center; }
 
 /* Contact */
-.contact {
-  padding: 3rem 2rem;
-  text-align: center;
-}
+.contact { padding: 3rem 2rem; text-align: center; }
 
 /* Footer */
 footer {
@@ -159,11 +128,7 @@ footer {
   text-align: center;
   padding: 1rem 2rem;
 }
-
-footer .socials a {
-  color: #f4b400;
-  margin: 0 0.5rem;
-}
+footer .socials a { color: #f4b400; margin: 0 0.5rem; }
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -177,13 +142,7 @@ footer .socials a {
     padding: 1rem;
     border-radius: 8px;
   }
-
-  nav.open ul {
-    display: flex;
-  }
-
-  #menu-toggle {
-    display: block;
-  }
+  nav.open ul { display: flex; }
+  #menu-toggle { display: block; }
 }
 

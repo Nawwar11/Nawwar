@@ -19,12 +19,6 @@ nav {
 
 }
 nav .logo {
-  font-size: 2rem;              /* bigger and more visible */
-  font-weight: 700;             /* bold */
-  color: #fff;                  /* white text */
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.6); /* adds contrast against background */
-  -webkit-font-smoothing: antialiased;
-  padding-left: 15px;           /* some spacing from the edge */
   background: rgba(0, 0, 0, 0.3); /* dark overlay behind text */
   border-radius: 5px;             /* slightly rounded corners */
   padding: 5px 10px;              /* some padding around text */

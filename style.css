@@ -9,15 +9,14 @@ body {
 
 /* Navbar */
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #111;
-  color: #fff;
-  position: sticky;
+  position: fixed;   /* ensures navbar stays at top */
+  width: 100%;
   top: 0;
+  left: 0;
+  transition: top 0.3s;  /* smooth hide/reveal */
   z-index: 1000;
+}
+
 }
 nav .logo {
   font-size: 1.8rem;

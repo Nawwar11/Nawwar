@@ -1,4 +1,4 @@
-/* General Styles */
+/* =================== General Styles =================== */
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
@@ -7,7 +7,7 @@ body {
   color: #2c2c2c;
 }
 
-/* Navbar */
+/* =================== Navbar =================== */
 nav {
   display: flex;
   justify-content: space-between;
@@ -51,7 +51,7 @@ nav .nav-links a:hover {
   z-index: 1100;
 }
 
-/* MOBILE NAV */
+/* =================== Mobile Navbar =================== */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -66,6 +66,8 @@ nav .nav-links a:hover {
     width: 100%;
     background: rgba(0, 0, 0, 0.95);
     padding: 1rem 0;
+    gap: 0.5rem;
+    text-align: center;
   }
 
   nav .nav-links.active {
@@ -74,11 +76,10 @@ nav .nav-links a:hover {
 
   nav .nav-links li {
     margin: 0.5rem 0;
-    text-align: center;
   }
 }
 
-/* Hero Section */
+/* =================== Hero Section =================== */
 .hero {
   position: relative;
   height: 70vh;
@@ -102,7 +103,7 @@ nav .nav-links a:hover {
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -123,7 +124,7 @@ nav .nav-links a:hover {
   transform: scale(1.05);
 }
 
-/* Sections */
+/* =================== Sections =================== */
 section {
   padding: 4rem 2rem;
   opacity: 0;
@@ -146,15 +147,14 @@ h2 {
   font-weight: 700;
 }
 
-
-
-/* Product Grid */
+/* =================== Product Grid =================== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.8rem;
   padding: 0 1rem;
 }
+
 .product-card {
   background: #fff;
   border-radius: 12px;
@@ -164,10 +164,12 @@ h2 {
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 6px 15px rgba(0,0,0,0.08);
 }
+
 .product-card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
 }
+
 .product-card img {
   width: 100%;
   height: 200px;
@@ -175,19 +177,23 @@ h2 {
   border-radius: 10px;
   margin-bottom: 0.8rem;
 }
+
 .product-card h3 {
   font-size: 1.2rem;
   margin: 0.5rem 0;
 }
+
 .product-card p {
   font-size: 1rem;
   margin: 0.3rem 0;
 }
+
 .discount {
   color: #e53935;
   font-weight: bold;
   margin-left: 0.5rem;
 }
+
 .buy-btn {
   margin-top: 0.8rem;
   padding: 0.5rem 1.2rem;
@@ -199,12 +205,13 @@ h2 {
   font-weight: 500;
   transition: 0.3s;
 }
+
 .buy-btn:hover {
   background-color: #b48a78;
   transform: scale(1.05);
 }
 
-/* About Section */
+/* =================== About Section =================== */
 #about {
   background: linear-gradient(120deg, #fdf6f0, #f7f1f5);
   text-align: center;
@@ -213,14 +220,14 @@ h2 {
   line-height: 1.8;
 }
 
-/* Contact Section */
+/* =================== Contact Section =================== */
 #contact {
   background: linear-gradient(120deg, #f7f1f5, #fef6f0);
   text-align: center;
   padding: 3rem 2rem;
 }
 
-/* Footer */
+/* =================== Footer =================== */
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -229,21 +236,26 @@ footer {
   font-weight: 500;
 }
 
-/* Responsive */
-@media(max-width:768px){
-  .nav-links { 
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background: #111;
-    gap: 1rem;
-    padding: 1rem 0;
+/* =================== Responsive =================== */
+@media(max-width: 768px){
+  /* Hero adjustments */
+  .hero {
+    height: 60vh;
   }
-  .nav-links.active { display: flex; }
-  .hamburger { display: block; }
+
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero .cta-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Nav adjustments handled above */
+  .product-card img {
+    height: 180px;
+  }
 }
 
 

@@ -79,14 +79,17 @@ nav .nav-links a:hover {
   }
 }
 
-/* Hero Section */
+/* ===== Hero Section (Updated Banner) ===== */
 .hero {
   position: relative;
   height: 70vh;
-  background: url('banner.jpg') center/cover no-repeat;
+  background: url('banner.jpg') no-repeat;
+  background-size: cover; /* full coverage */
+  background-position: center 75%; /* between center and bottom */
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .hero .overlay {
@@ -128,7 +131,7 @@ nav .nav-links a:hover {
 @media(max-width: 768px){
   .hero {
     height: 50vh;
-    background-position: center top;
+    background-position: center 80%; /* mobile focus more to bottom */
   }
   .hero h1 {
     font-size: 1.8rem;
@@ -249,4 +252,5 @@ footer {
   color: #fff;
   font-weight: 500;
 }
+
 

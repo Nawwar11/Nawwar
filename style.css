@@ -24,6 +24,11 @@ nav .logo {
   font-weight: 700;
   text-decoration: none;
 }
+nav .logo img {
+  height: 50px;   /* adjust size as needed */
+  width: auto;    /* keeps the aspect ratio */
+  display: block; /* removes extra spacing */
+}
 
 nav .nav-links {
   list-style: none;

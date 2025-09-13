@@ -5,6 +5,16 @@ const navLinks = document.querySelector('.nav-links');
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
+// ===== Dropdown Toggle on Mobile =====
+const dropdown = document.querySelector('.dropdown');
+
+dropdown.addEventListener('click', (e) => {
+  if (window.innerWidth <= 768) {
+    e.preventDefault(); // prevent jumping
+    dropdown.classList.toggle('active');
+  }
+});
+
 
 // ===== Fade-in Animation for Sections =====
 const sections = document.querySelectorAll('section');
@@ -43,13 +53,12 @@ productCards.forEach(card => {
 });
 
 // ===== Instagram Buy Now Button =====
-const instaUsername = "nawwarperfume"; // Your Instagram handle
+const instaPage = "https://www.instagram.com/nawwarperfume/"; // Your Instagram page
 const buyButtons = document.querySelectorAll('.buy-btn');
 
 buyButtons.forEach(button => {
   button.addEventListener('click', () => {
-    const productName = button.getAttribute('data-product');
-    const instaLink = `https://www.instagram.com/direct/t/${instaUsername}/?text=Hi%20Nawwar,%20I%20want%20to%20buy%20the%20"${encodeURIComponent(productName)}"%20perfume.`;
-    window.open(instaLink, "_blank");
+    window.open(instaPage, "_blank");
   });
 });
+

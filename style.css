@@ -259,14 +259,24 @@ h2 {
   transform: translateY(0);
 }
 
-/* About Section */
+/* About Section - Luxurious Typography */
 #about {
   background: linear-gradient(120deg, #fdf6f0, #f7f1f5);
   text-align: center;
   padding: 4rem 2rem;
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;        /* Slightly larger for elegance */
+  font-style: italic;        /* Adds luxurious feel */
+  line-height: 2.0;          /* More airy and readable */
+  letter-spacing: 0.5px;     /* Adds sophistication */
+  color: #2c2c2c;
 }
+
+#about strong {
+  font-weight: 700;          /* Highlight important words */
+  color: #b48a78;            /* Luxury accent color */
+}
+
 
 /* Contact Section */
 #contact {

@@ -6,7 +6,6 @@ body {
   color: #2c2c2c;
   scroll-behavior: smooth;
 }
-}
 
 /* Navbar */
 nav {
@@ -80,13 +79,13 @@ nav .nav-links a:hover {
   }
 }
 
-/* ===== Hero Section (Updated Banner) ===== */
+/* ===== Hero Section ===== */
 .hero {
   position: relative;
   height: 70vh;
   background: url('banner.jpg') no-repeat;
-  background-size: cover; /* full coverage */
-  background-position: center 75%; /* between center and bottom */
+  background-size: cover;
+  background-position: center 75%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,10 +128,10 @@ nav .nav-links a:hover {
 }
 
 /* Hero Responsive Adjustments */
-@media(max-width: 768px){
+@media (max-width: 768px) {
   .hero {
     height: 50vh;
-    background-position: center 80%; /* mobile focus more to bottom */
+    background-position: center 80%;
   }
   .hero h1 {
     font-size: 1.8rem;
@@ -143,7 +142,7 @@ nav .nav-links a:hover {
 }
 
 /* ===========================
-   SECTIONS: GENERAL
+   Sections: General
 =========================== */
 section {
   padding: 4rem 2rem;
@@ -151,7 +150,7 @@ section {
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   background: linear-gradient(to right, #fdf6f0, #f6f0f8);
-  border-top: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 section.fade-in {
@@ -170,7 +169,7 @@ h2 {
 }
 
 /* ===========================
-   PRODUCT GRID
+   Product Grid
 =========================== */
 .product-grid {
   display: grid;
@@ -246,26 +245,19 @@ h2 {
 }
 
 /* ===========================
-   MEN & WOMEN SPECIFIC (Optional extra spacing)
+   Men & Women Sections
 =========================== */
-#women {
-  padding: 60px 20px;
-}
-
-#men {
+#women, #men {
   padding: 60px 20px;
 }
 
 /* ===========================
-   FADE-IN FOR PRODUCT CARDS
+   Fade-in for Product Cards
 =========================== */
 .product-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-
-
 
 /* About Section */
 #about {
@@ -291,5 +283,4 @@ footer {
   color: #fff;
   font-weight: 500;
 }
-
 

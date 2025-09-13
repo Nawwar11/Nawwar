@@ -142,12 +142,16 @@ nav .nav-links a:hover {
   }
 }
 
-/* ===== Section Styles ===== */
+/* ===========================
+   SECTIONS: GENERAL
+=========================== */
 section {
   padding: 4rem 2rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  background: linear-gradient(to right, #fdf6f0, #f6f0f8);
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 section.fade-in {
@@ -157,14 +161,17 @@ section.fade-in {
 
 h2 {
   text-align: center;
+  margin-bottom: 2.5rem;
   font-size: 2.2rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-  color: #2c2c2c;
   letter-spacing: 1px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: #2c2c2c;
 }
 
-/* ===== Product Grid ===== */
+/* ===========================
+   PRODUCT GRID
+=========================== */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -173,15 +180,15 @@ h2 {
   margin: 0 auto;
 }
 
-/* ===== Product Card ===== */
 .product-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   padding: 20px;
   text-align: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .product-card:hover {
@@ -193,7 +200,7 @@ h2 {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   transition: transform 0.4s ease;
 }
 
@@ -231,7 +238,6 @@ h2 {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .product-card .buy-btn:hover {
@@ -239,19 +245,25 @@ h2 {
   transform: scale(1.05);
 }
 
-/* ===== MEN SECTION ===== */
-#men {
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8);
+/* ===========================
+   MEN & WOMEN SPECIFIC (Optional extra spacing)
+=========================== */
+#women {
   padding: 60px 20px;
-  text-align: center;
 }
 
-/* ===== WOMEN SECTION ===== */
-#women {
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8); /* same luxury background as men */
+#men {
   padding: 60px 20px;
-  text-align: center;
 }
+
+/* ===========================
+   FADE-IN FOR PRODUCT CARDS
+=========================== */
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 

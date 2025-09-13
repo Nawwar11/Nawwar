@@ -1,6 +1,6 @@
-// script.js (complete)
+// script.js (updated & reviewed)
 
-// Wrap in DOMContentLoaded to be safe if script isn't deferred
+// Wrap in DOMContentLoaded to ensure DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ===========================
@@ -14,14 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgers.forEach(h => {
       h.setAttribute('role', 'button');
       h.setAttribute('tabindex', '0');
+
       h.addEventListener('click', (e) => {
         e.stopPropagation();
         navLinks.classList.toggle('active');
         const expanded = navLinks.classList.contains('active');
-        // keep aria state consistent on all hamburgers
         hamburgers.forEach(btn => btn.setAttribute('aria-expanded', expanded));
       });
-      // keyboard support
+
+      // keyboard accessibility
       h.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') h.click();
       });
@@ -41,15 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
      =========================== */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      // If href is just "#" do nothing
       const href = this.getAttribute('href');
       if (href === '#') return;
       const target = document.querySelector(href);
-      if (!target) return; // guard
+      if (!target) return;
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-      // close mobile nav if open
       if (navLinks && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         hamburgers.forEach(btn => btn.setAttribute('aria-expanded', 'false'));
@@ -59,16 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ====================================
      FADE-IN: SECTIONS & PRODUCT CARDS
-     (IntersectionObserver with fallback)
      ==================================== */
   const sections = Array.from(document.querySelectorAll('section'));
   const productCards = Array.from(document.querySelectorAll('.product-card'));
 
-  // helper to add class safely
   const addClass = (el, cls) => el && !el.classList.contains(cls) && el.classList.add(cls);
 
   if ('IntersectionObserver' in window) {
-    // sections observer
     const secObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -80,11 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(s => secObserver.observe(s));
 
-    // product cards observer (with small stagger)
     const cardObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // optional stagger: small delay based on index if dataset provided
           const delay = entry.target.dataset && entry.target.dataset.delay ? Number(entry.target.dataset.delay) : 0;
           setTimeout(() => addClass(entry.target, 'visible'), delay);
           obs.unobserve(entry.target);
@@ -93,12 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.12 });
 
     productCards.forEach((card, i) => {
-      // set a small data-delay to stagger appearance (optional)
       card.dataset.delay = i * 80;
       cardObserver.observe(card);
     });
   } else {
-    // fallback: basic scroll check
     const fadeInOnScroll = () => {
       const viewportBottom = window.innerHeight;
       sections.forEach(s => {
@@ -115,14 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===========================
      BUY / ADD-TO-CART HANDLING
-     - updates .cart-count if present
-     - shows a small toast
      =========================== */
   const buyButtons = Array.from(document.querySelectorAll('.buy-btn, .btn, button.buy, button.add-to-cart'));
   let cartCount = 0;
   const cartCountElem = document.querySelector('.cart-count') || document.getElementById('cart-count');
 
-  // create toast utility
   function showToast(msg = '', duration = 2000) {
     let toast = document.querySelector('.site-toast');
     if (!toast) {
@@ -147,9 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toast.textContent = msg;
     toast.style.opacity = '1';
     window.clearTimeout(toast._timeoutId);
-    toast._timeoutId = setTimeout(() => {
-      toast.style.opacity = '0';
-    }, duration);
+    toast._timeoutId = setTimeout(() => { toast.style.opacity = '0'; }, duration);
   }
 
   if (buyButtons.length) {
@@ -159,8 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let prodName = 'Product';
         let prodPrice = '';
         if (card) {
-          const nameEl = card.querySelector('.product-name, h3, h2');
-          const priceEl = card.querySelector('.new-price, .price, .price-box, .price > span:last-child');
+          const nameEl = card.querySelector('h3, .product-name');
+          const priceEl = card.querySelector('.price, .new-price');
           prodName = nameEl ? nameEl.innerText.trim() : prodName;
           prodPrice = priceEl ? priceEl.innerText.trim() : prodPrice;
         }
@@ -180,11 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
       else nav.classList.remove('scrolled');
     };
     window.addEventListener('scroll', onNavScroll);
-    onNavScroll(); // initial check
+    onNavScroll();
   }
 
   /* ===========================
-     SCROLL TO TOP (if element with id exists)
+     SCROLL TO TOP
      =========================== */
   const scrollBtn = document.getElementById('scrollToTop');
   if (scrollBtn) {
@@ -197,38 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
-  /* ===========================
-     OPTIONAL: PRODUCT FILTER (if you use data-filter buttons)
-     =========================== */
-  const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
-  if (filterButtons.length) {
-    const productSections = Array.from(document.querySelectorAll('.product-section'));
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.dataset.filter;
-        productSections.forEach(section => {
-          section.style.display = (filter === 'all' || section.id === filter) ? '' : 'none';
-        });
-        filterButtons.forEach(b => b.classList.remove('active'));
-        button.classList.add('active');
-      });
-    });
-  }
+});
 
-  /* ===========================
-     DEV: optional console summary
-     =========================== */
-  // console.log('UI script loaded:', {
-  //   hamburgersCount: hamburgers.length,
-  //   navLinksPresent: !!navLinks,
-  //   productCardsCount: productCards.length,
-  //   buyButtonsCount: buyButtons.length
-  // });
-
-}); // DOMContentLoaded end
-
-
-window.addEventListener('scroll', fadeInOnScroll);
-window.addEventListener('load', fadeInOnScroll);
 
 

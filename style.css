@@ -230,74 +230,92 @@ h2 {
 
 /* MEN SECTION */
 #men {
-  background-color: #f9f9f9; /* same subtle background as other sections */
+  background: linear-gradient(to right, #fdf6f0, #f6f0f8); /* same as site */
   padding: 60px 20px;
   text-align: center;
-  font-family: 'Helvetica Neue', Arial, sans-serif; /* match global site font */
+  font-family: 'Playfair Display', serif; /* premium serif font */
 }
 
 #men h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 40px;
-  color: #333; /* clear but not too dark */
+  color: #2c2c2c;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .men-products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .men-product {
-  background: #fff; /* same card style as other sections */
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
 .men-product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 .men-product img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  transition: transform 0.4s ease;
+}
+
+.men-product:hover img {
+  transform: scale(1.05);
 }
 
 .men-product h3 {
-  font-size: 1.3rem;
-  color: #444; /* readable & consistent with site */
-  margin-bottom: 8px;
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
-.men-product p {
+.men-product .inspired {
   font-size: 1rem;
-  color: #666; /* softer gray for text */
-  margin-bottom: 15px;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 12px;
 }
 
-.men-product button {
-  background: #111; /* luxury feel */
+.men-product .price {
+  font-size: 1.2rem;
+  color: #2c2c2c;
+  font-weight: bold;
+  margin-bottom: 14px;
+}
+
+.men-product .buy-btn {
+  background: #111;
   color: #fff;
   border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.men-product button:hover {
+.men-product .buy-btn:hover {
   background: #444;
+  transform: scale(1.05);
 }
+
 
 /* About Section */
 #about {

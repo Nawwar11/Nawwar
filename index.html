@@ -12,16 +12,26 @@
 
 <nav>
   <a href="#home" class="logo">
-  <img src="logo.png" alt="Nawwar Logo">
-</a>
+    <img src="logo.png" alt="Nawwar Logo" style="height:40px;">
+  </a>
   <div class="hamburger">☰</div>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
-    <li><a href="#products">Products</a></li>
+
+    <!-- Products Dropdown -->
+    <li class="dropdown">
+      <a href="#">Products ▼</a>
+      <ul class="dropdown-menu">
+        <li><a href="#women">Women</a></li>
+        <li><a href="#men">Men</a></li>
+      </ul>
+    </li>
+
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
 
 <!-- HERO SECTION -->
 <section id="home" class="hero">

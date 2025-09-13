@@ -42,16 +42,16 @@ productCards.forEach(card => {
   cardObserver.observe(card);
 });
 
-// ===== Buy Now Button Redirect to Instagram DM =====
-const instaLink = "https://www.instagram.com/nawwarperfume/";
-
+// ===========================
+// Buy Now Buttons to Instagram
+// ===========================
 const buyButtons = document.querySelectorAll('.buy-btn');
 
 buyButtons.forEach(button => {
   button.addEventListener('click', () => {
-    const productName = button.getAttribute('data-product');
-    const message = encodeURIComponent(`Hi, I'm interested in buying: ${productName}`);
-    const url = `https://www.instagram.com/direct/new/?text=${message}`;
-    window.open(url, '_blank'); // opens new tab with prefilled message
+    const productName = button.closest('.product-card').querySelector('h3').innerText;
+    alert(`Please send a message to Nawwar with the product: ${productName}`);
+    window.open('https://www.instagram.com/nawwarperfume', '_blank');
   });
 });
+

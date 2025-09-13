@@ -343,6 +343,22 @@ h2 {
 #contact a:hover {
   color: #0c4da2;  /* darker blue on hover */
 }
+/* Contact Section Links */
+#contact {
+  text-align: center; /* center content */
+}
+
+#contact a {
+  color: #1a73e8;           /* blue links */
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: #0c4da2;           /* darker blue on hover */
+}
+
 
 
 /* Footer */

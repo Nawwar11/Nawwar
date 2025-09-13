@@ -141,92 +141,94 @@ nav .nav-links a:hover {
   }
 }
 
-/* Sections */
-section {
-  padding: 4rem 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8);
-  border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h2 {
+/* WOMEN SECTION */
+#women {
+  background: linear-gradient(to right, #fdf6f0, #f6f0f8); /* same as site */
+  padding: 60px 20px;
   text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
+  font-family: 'Playfair Display', serif; /* premium serif font */
+}
+
+#women h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: #2c2c2c;
   letter-spacing: 1px;
   font-weight: 700;
 }
 
-/* Product Grid */
-.product-grid {
+.women-products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.8rem;
-  padding: 0 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.product-card {
+.women-product {
   background: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
 }
 
-.product-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+.women-product:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
-.product-card img {
+.women-product img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 0.8rem;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  transition: transform 0.4s ease;
 }
 
-.product-card h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
+.women-product:hover img {
+  transform: scale(1.05);
 }
 
-.product-card p {
+.women-product h3 {
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.women-product .inspired {
   font-size: 1rem;
-  margin: 0.3rem 0;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 12px;
 }
 
-.discount {
-  color: #e53935;
+.women-product .price {
+  font-size: 1.2rem;
+  color: #2c2c2c;
   font-weight: bold;
-  margin-left: 0.5rem;
+  margin-bottom: 14px;
 }
 
-.buy-btn {
-  margin-top: 0.8rem;
-  padding: 0.5rem 1.2rem;
+.women-product .buy-btn {
   background: #111;
   color: #fff;
   border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.buy-btn:hover {
-  background-color: #b48a78;
+.women-product .buy-btn:hover {
+  background: #444;
   transform: scale(1.05);
 }
+
 
 /* MEN SECTION */
 #men {

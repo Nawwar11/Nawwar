@@ -63,6 +63,7 @@ nav .nav-links a:hover {
   list-style: none;
   min-width: 140px;
   border-radius: 6px;
+  flex-direction: column;
 }
 
 .nav-links li.dropdown .dropdown-menu li a {
@@ -78,9 +79,9 @@ nav .nav-links a:hover {
   color: #000;
 }
 
-/* Show dropdown on hover */
+/* Show dropdown on hover for desktop */
 .nav-links li.dropdown:hover .dropdown-menu {
-  display: block;
+  display: flex;
 }
 
 /* Hamburger */
@@ -332,7 +333,6 @@ h2 {
   color: #b48a78;            /* Luxury accent color */
 }
 
-
 /* Contact Section */
 #contact {
   background: linear-gradient(120deg, #f7f1f5, #fef6f0);
@@ -345,6 +345,9 @@ footer {
   text-align: center;
   padding: 1.5rem;
   background-color: #111;
+  color: #fff;
+}
+
   color: #fff;
   font-weight: 500;
 }

@@ -1,10 +1,11 @@
-/* General Styles */
+/* ===== General Styles ===== */
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
-  scroll-behavior: smooth;
   background: linear-gradient(135deg, #fdf6f0, #f0e7f2);
   color: #2c2c2c;
+  scroll-behavior: smooth;
+}
 }
 
 /* Navbar */
@@ -141,78 +142,87 @@ nav .nav-links a:hover {
   }
 }
 
-/* WOMEN SECTION */
-#women {
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8); /* same as site */
-  padding: 60px 20px;
-  text-align: center;
-  font-family: 'Playfair Display', serif; /* premium serif font */
+/* ===== Section Styles ===== */
+section {
+  padding: 4rem 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-#women h2 {
+section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  text-align: center;
   font-size: 2.2rem;
-  margin-bottom: 40px;
+  margin-bottom: 3rem;
+  font-weight: 700;
   color: #2c2c2c;
   letter-spacing: 1px;
-  font-weight: 700;
 }
 
-.women-products {
+/* ===== Product Grid ===== */
+.product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.women-product {
+/* ===== Product Card ===== */
+.product-card {
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
   padding: 20px;
+  text-align: center;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
 }
 
-.women-product:hover {
+.product-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
-.women-product img {
+.product-card img {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   transition: transform 0.4s ease;
 }
 
-.women-product:hover img {
+.product-card:hover img {
   transform: scale(1.05);
 }
 
-.women-product h3 {
+.product-card h3 {
   font-size: 1.4rem;
   color: #222;
   margin-bottom: 6px;
   font-weight: 600;
 }
 
-.women-product .inspired {
+.product-card .inspired {
   font-size: 1rem;
   font-style: italic;
   color: #555;
   margin-bottom: 12px;
 }
 
-.women-product .price {
+.product-card .price {
   font-size: 1.2rem;
   color: #2c2c2c;
   font-weight: bold;
   margin-bottom: 14px;
 }
 
-.women-product .buy-btn {
+.product-card .buy-btn {
   background: #111;
   color: #fff;
   border: none;
@@ -224,99 +234,25 @@ nav .nav-links a:hover {
   font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
-.women-product .buy-btn:hover {
+.product-card .buy-btn:hover {
   background: #444;
   transform: scale(1.05);
 }
 
-
-/* MEN SECTION */
+/* ===== MEN SECTION ===== */
 #men {
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8); /* same as site */
+  background: linear-gradient(to right, #fdf6f0, #f6f0f8);
   padding: 60px 20px;
   text-align: center;
-  font-family: 'Playfair Display', serif; /* premium serif font */
 }
 
-#men h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  color: #2c2c2c;
-  letter-spacing: 1px;
-  font-weight: 700;
+/* ===== WOMEN SECTION ===== */
+#women {
+  background: linear-gradient(to right, #fdf6f0, #f6f0f8); /* same luxury background as men */
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.men-products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.men-product {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-}
-
-.men-product:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-}
-
-.men-product img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 18px;
-  transition: transform 0.4s ease;
-}
-
-.men-product:hover img {
-  transform: scale(1.05);
-}
-
-.men-product h3 {
-  font-size: 1.4rem;
-  color: #222;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.men-product .inspired {
-  font-size: 1rem;
-  font-style: italic;
-  color: #555;
-  margin-bottom: 12px;
-}
-
-.men-product .price {
-  font-size: 1.2rem;
-  color: #2c2c2c;
-  font-weight: bold;
-  margin-bottom: 14px;
-}
-
-.men-product .buy-btn {
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-.men-product .buy-btn:hover {
-  background: #444;
-  transform: scale(1.05);
-}
 
 
 /* About Section */

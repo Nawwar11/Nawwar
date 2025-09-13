@@ -333,12 +333,17 @@ h2 {
   color: #b48a78;            /* Luxury accent color */
 }
 
-/* Contact Section */
-#contact {
-  background: linear-gradient(120deg, #f7f1f5, #fef6f0);
-  text-align: center;
-  padding: 3rem 2rem;
+/* Contact Section Links */
+#contact a {
+  color: #1a73e8;  /* Google blue, adjust if needed */
+  text-decoration: underline;  /* optional, makes it look like a link */
+  transition: color 0.3s;
 }
+
+#contact a:hover {
+  color: #0c4da2;  /* darker blue on hover */
+}
+
 
 /* Footer */
 footer {

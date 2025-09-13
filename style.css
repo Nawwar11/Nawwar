@@ -228,97 +228,76 @@ h2 {
   transform: scale(1.05);
 }
 
-/* =======================
-   Men's Collection Styles
-   ======================= */
+/* MEN SECTION */
 #men {
+  background-color: #f9f9f9; /* same subtle background as other sections */
   padding: 60px 20px;
-  background: #0a0a0a; /* dark luxurious background */
-}
-
-#men .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 50px;
-  color: #d4af37; /* gold */
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* match global site font */
 }
 
-#men .product-grid {
+#men h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333; /* clear but not too dark */
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.men-products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#men .product-card {
-  background: #111;
-  border-radius: 15px;
+.men-product {
+  background: #fff; /* same card style as other sections */
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  text-align: center;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#men .product-card:hover {
+.men-product:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-#men .product-image {
-  max-width: 100%;
+.men-product img {
+  width: 100%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 15px;
 }
 
-#men .product-name {
+.men-product h3 {
   font-size: 1.3rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 10px 0;
+  color: #444; /* readable & consistent with site */
+  margin-bottom: 8px;
 }
 
-#men .inspired {
-  font-size: 0.95rem;
-  color: #bbb;
-  font-style: italic;
+.men-product p {
+  font-size: 1rem;
+  color: #666; /* softer gray for text */
   margin-bottom: 15px;
 }
 
-#men .price-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-#men .old-price {
-  text-decoration: line-through;
-  color: #777;
+.men-product button {
+  background: #111; /* luxury feel */
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
   font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-#men .new-price {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #d4af37; /* gold for luxury */
+.men-product button:hover {
+  background: #444;
 }
-
-#men .discount-badge {
-  background: linear-gradient(135deg, #d4af37, #b8860b);
-  color: #000;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 5px 10px;
-  border-radius: 20px;
-  box-shadow: 0 3px 10px rgba(212, 175, 55, 0.6);
-}
-
 
 /* About Section */
 #about {

@@ -1,13 +1,18 @@
-/* ===== General Styles ===== */
+/* ===========================
+   General Styles
+=========================== */
 body {
   margin: 0;
   font-family: 'Playfair Display', serif;
   background: linear-gradient(135deg, #fdf6f0, #f0e7f2);
   color: #2c2c2c;
   scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
-/* Navbar */
+/* ===========================
+   Navbar
+=========================== */
 nav {
   display: flex;
   justify-content: space-between;
@@ -26,9 +31,9 @@ nav .logo {
 }
 
 nav .logo img {
-  height: 50px;   /* adjust size as needed */
-  width: auto;    /* keeps the aspect ratio */
-  display: block; /* removes extra spacing */
+  height: 50px;
+  width: auto;
+  display: block;
 }
 
 nav .nav-links {
@@ -38,7 +43,7 @@ nav .nav-links {
 }
 
 nav .nav-links li {
-  position: relative; /* needed for dropdown positioning */
+  position: relative;
 }
 
 nav .nav-links a {
@@ -52,7 +57,7 @@ nav .nav-links a:hover {
   color: #d4a373;
 }
 
-/* Dropdown Menu */
+/* Dropdown */
 .nav-links li.dropdown .dropdown-menu {
   display: none;
   position: absolute;
@@ -70,7 +75,6 @@ nav .nav-links a:hover {
   color: #fff;
   padding: 0.5rem 1rem;
   display: block;
-  text-decoration: none;
   font-weight: 500;
 }
 
@@ -79,7 +83,6 @@ nav .nav-links a:hover {
   color: #000;
 }
 
-/* Show dropdown on hover for desktop */
 .nav-links li.dropdown:hover .dropdown-menu {
   display: flex;
 }
@@ -93,7 +96,7 @@ nav .nav-links a:hover {
   z-index: 1100;
 }
 
-/* MOBILE NAV */
+/* Mobile Nav */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
@@ -120,7 +123,6 @@ nav .nav-links a:hover {
     margin: 0.5rem 0;
   }
 
-  /* Mobile Dropdown Toggle */
   nav .nav-links li.dropdown .dropdown-menu {
     position: static;
     display: none;
@@ -135,13 +137,13 @@ nav .nav-links a:hover {
   }
 }
 
-/* ===== Hero Section ===== */
+/* ===========================
+   Hero Section
+=========================== */
 .hero {
   position: relative;
   height: 70vh;
-  background: url('banner.jpg') no-repeat;
-  background-size: cover;
-  background-position: center 75%;
+  background: url('banner.jpg') no-repeat center 75%/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -156,9 +158,8 @@ nav .nav-links a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #fff;
   padding: 0 1rem;
+  color: #fff;
 }
 
 .hero h1 {
@@ -183,7 +184,7 @@ nav .nav-links a:hover {
   transform: scale(1.05);
 }
 
-/* Hero Responsive Adjustments */
+/* Hero Responsive */
 @media (max-width: 768px) {
   .hero {
     height: 50vh;
@@ -198,8 +199,12 @@ nav .nav-links a:hover {
 }
 
 /* ===========================
-   Product Card Price + Discount
+   Product Cards
 =========================== */
+.product-card {
+  transition: 0.3s ease;
+}
+
 .product-card .price {
   font-size: 1.2rem;
   color: #2c2c2c;
@@ -219,7 +224,7 @@ nav .nav-links a:hover {
   display: inline-block;
   background: linear-gradient(45deg, #ff3c3c, #ff9c00, #ff3c3c);
   background-size: 200% 200%;
-  color: white;
+  color: #fff;
   font-size: 0.85rem;
   font-weight: bold;
   padding: 4px 10px;
@@ -234,66 +239,60 @@ nav .nav-links a:hover {
   100% { background-position: 0% 50%; }
 }
 
-/* Hover lift with glow */
 .product-card:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
-
-/* About Section - Luxurious Typography */
+/* ===========================
+   About Section
+=========================== */
 #about {
   background: linear-gradient(120deg, #fdf6f0, #f7f1f5);
   text-align: center;
   padding: 4rem 2rem;
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem;        /* Slightly larger for elegance */
-  font-style: italic;        /* Adds luxurious feel */
-  line-height: 2.0;          /* More airy and readable */
-  letter-spacing: 0.5px;     /* Adds sophistication */
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 2;
+  letter-spacing: 0.5px;
   color: #2c2c2c;
 }
 
 #about strong {
-  font-weight: 700;          /* Highlight important words */
-  color: #b48a78;            /* Luxury accent color */
+  font-weight: 700;
+  color: #b48a78;
 }
 
-/* Contact Section Links */
-#contact a {
-  color: #1a73e8;  /* Google blue, adjust if needed */
-  text-decoration: underline;  /* optional, makes it look like a link */
-  transition: color 0.3s;
-}
-
-#contact a:hover {
-  color: #0c4da2;  /* darker blue on hover */
-}
-/* Contact Section Links */
+/* ===========================
+   Contact Section
+=========================== */
 #contact {
-  text-align: center; /* center content */
+  text-align: center;
+  padding: 2rem;
 }
 
 #contact a {
-  color: #1a73e8;           /* blue links */
+  color: #1a73e8;
   text-decoration: underline;
   font-weight: 500;
   transition: color 0.3s;
 }
 
 #contact a:hover {
-  color: #0c4da2;           /* darker blue on hover */
+  color: #0c4da2;
 }
 
-
-
-/* Footer */
+/* ===========================
+   Footer
+=========================== */
 footer {
   text-align: center;
   padding: 1.5rem;
   background-color: #111;
   color: #fff;
 }
+
 
   color: #fff;
   font-weight: 500;

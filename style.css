@@ -198,122 +198,48 @@ nav .nav-links a:hover {
 }
 
 /* ===========================
-   Sections: General
+   Product Card Price + Discount
 =========================== */
-section {
-  padding: 4rem 2rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  background: linear-gradient(to right, #fdf6f0, #f6f0f8);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-section.fade-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 2.5rem;
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  font-weight: 700;
-  font-family: 'Playfair Display', serif;
-  color: #2c2c2c;
-}
-
-/* ===========================
-   Product Grid
-=========================== */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.product-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  cursor: pointer;
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
-
-.product-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-}
-
-.product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 18px;
-  transition: transform 0.4s ease;
-}
-
-.product-card:hover img {
-  transform: scale(1.05);
-}
-
-.product-card h3 {
-  font-size: 1.4rem;
-  color: #222;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.product-card .inspired {
-  font-size: 1rem;
-  font-style: italic;
-  color: #555;
-  margin-bottom: 12px;
-}
-
 .product-card .price {
   font-size: 1.2rem;
   color: #2c2c2c;
   font-weight: bold;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
-.product-card .buy-btn {
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.product-card .old-price {
+  font-size: 0.95rem;
+  color: #888;
+  text-decoration: line-through;
+  margin-bottom: 4px;
+  display: block;
 }
 
-.product-card .buy-btn:hover {
-  background: #444;
-  transform: scale(1.05);
+.product-card .badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff3c3c, #ff9c00, #ff3c3c);
+  background-size: 200% 200%;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  animation: shine 3s linear infinite;
 }
 
-/* ===========================
-   Men & Women Sections
-=========================== */
-#women, #men {
-  padding: 60px 20px;
+@keyframes shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* ===========================
-   Fade-in for Product Cards
-=========================== */
-.product-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Hover lift with glow */
+.product-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
+
 
 /* About Section - Luxurious Typography */
 #about {

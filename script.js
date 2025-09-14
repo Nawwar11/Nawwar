@@ -157,5 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-}); // DOMContentLoaded end
+  /* ---------- MOBILE FIX: Ensure product images fit nicely ---------- */
+  function fixProductImages() {
+    const imgs = document.querySelectorAll('.product-card img');
+    imgs.forEach(img => {
+      img.style.width = '100%';
+      img.style.height = 'auto';
+      img.style.maxHeight = window.innerWidth <= 540 ? '180px' : '220px';
+      img.style.objectFit = 'cover';
+    });
+  }
+  fixProductImages();
+  window.addEventListener('resize', fixProductImages);
 
+}); // DOMContentLoaded end

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nawwar Perfumes – Luxury for Women & Men</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -14,13 +14,15 @@
   <a href="#home" class="logo">
     <img src="logo.png" alt="Nawwar Logo">
   </a>
-  <div class="hamburger">☰</div>
+
+  <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">☰</div>
+
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
 
     <!-- Products Dropdown -->
     <li class="dropdown">
-      <a href="#">Products ▼</a>
+      <a href="#products">Products ▾</a>
       <ul class="dropdown-menu">
         <li><a href="#women">Women</a></li>
         <li><a href="#men">Men</a></li>
@@ -32,9 +34,7 @@
   </ul>
 </nav>
 
-
-
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section id="home" class="hero">
   <div class="overlay">
     <h1>Elegance, luxury, and trust in every drop</h1>
@@ -42,136 +42,213 @@
   </div>
 </section>
 
-<!-- ===========================
-     WOMEN SECTION
-=========================== -->
-<section id="women">
-  <h2>Women</h2>
-  <div class="product-grid women-products">
-    <div class="product-card">
-      <img src="BlushBerry.jpg" alt="BlushBerry">
-      <h3>50ml – BlushBerry</h3>
-      <p class="inspired">Inspired by Burberry her</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="BlushBerry">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Desire.jpg" alt="Desire">
-      <h3>50ml – Desire</h3>
-      <p class="inspired">Inspired by Good Girl Carolina Herrera</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Desire">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Fakhama.jpg" alt="Fakhama">
-      <h3>50ml – Fakhama</h3>
-      <p class="inspired">Inspired by Khamrah Lattafa</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Fakhama">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Hawaa.jpg" alt="Hawaa">
-      <h3>50ml – Hawaa</h3>
-      <p class="inspired">Inspired by So Scandal JPG</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Hawaa">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="MM-Vanilla.jpg" alt="MM-Vanilla">
-      <h3>50ml – MM-Vanilla</h3>
-      <p class="inspired">Inspired by Roses Vanille Mancera</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="MM-Vanilla">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Midnight-Glow.jpg" alt="Midnight-Glow">
-      <h3>50ml – Midnight-Glow</h3>
-      <p class="inspired">Inspired by Libre Intense YSL</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Midnight-Glow">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Nanise.jpg" alt="Nanise">
-      <h3>50ml – Nanise</h3>
-      <p class="inspired">Inspired by Idōl Lancōm</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Nanise">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Soft-Spring.jpg" alt="Soft-Spring">
-      <h3>50ml – Soft-Spring</h3>
-      <p class="inspired">Inspired by Gangnam Bath and Body Works</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Soft-Spring">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Sweetie.jpg" alt="Sweetie">
-      <h3>50ml – Sweetie</h3>
-      <p class="inspired">Inspired by Yara Candy Lattafa</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Sweetie">Buy Now</button>
-    </div>
-  </div>
-</section>
+<!-- PRODUCTS WRAPPER (so "Shop Now" goes here) -->
+<section id="products">
 
-<!-- ===========================
-     MEN SECTION
-=========================== -->
-<section id="men">
-  <h2>Men</h2>
-  <div class="product-grid men-products">
-    <div class="product-card">
-      <img src="Volcano.jpg" alt="Volcano">
-      <h3>50ml – Volcano</h3>
-      <p class="inspired">Inspired by Dunhill Desire Red</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Volcano">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Classic-Fresh.jpg" alt="Classic Fresh">
-      <h3>50ml – Classic Fresh</h3>
-      <p class="inspired">Inspired by Bleu de Chanel</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Classic Fresh">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Dangerous.jpg" alt="Dangerous">
-      <h3>50ml – Dangerous</h3>
-      <p class="inspired">Inspired by Sauvage Dior</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Dangerous">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Blue-Sky.png" alt="Blue Sky">
-      <h3>50ml – Blue Sky</h3>
-      <p class="inspired">Inspired by Imagination Louis Vuitton</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Blue Sky">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Waqar.jpg" alt="Waqar">
-      <h3>50ml – Waqar</h3>
-      <p class="inspired">Inspired by Stronger With You Intensely GA</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Waqar">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Iron-gentleman.jpg" alt="Iron Gentleman">
-      <h3>50ml – Iron Gentleman</h3>
-      <p class="inspired">Inspired by Le Male Le Parfum JPG</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Iron Gentleman">Buy Now</button>
-    </div>
-    <div class="product-card">
-      <img src="Velvet-Smoke.jpg" alt="Velvet Smoke">
-      <h3>50ml – Velvet Smoke</h3>
-      <p class="inspired">Inspired by Tobacco Vanilla Tom Ford</p>
-      <p class="price">300 EGP</p>
-      <button class="buy-btn" data-product="Velvet Smoke">Buy Now</button>
-    </div>
-  </div>
-</section>
+  <!-- ===========================
+       WOMEN SECTION
+  =========================== -->
+  <section id="women">
+    <h2>Women</h2>
+    <div class="product-grid women-products">
+      <!-- BlushBerry -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="BlushBerry.jpg" alt="BlushBerry">
+        <h3>50ml – BlushBerry</h3>
+        <p class="inspired">Inspired by Burberry her</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – BlushBerry">Buy Now</button>
+      </div>
 
+      <!-- Desire -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Desire.jpg" alt="Desire">
+        <h3>50ml – Desire</h3>
+        <p class="inspired">Inspired by Good Girl Carolina Herrera</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Desire">Buy Now</button>
+      </div>
+
+      <!-- Fakhama -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Fakhama.jpg" alt="Fakhama">
+        <h3>50ml – Fakhama</h3>
+        <p class="inspired">Inspired by Khamrah Lattafa</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Fakhama">Buy Now</button>
+      </div>
+
+      <!-- Hawaa -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Hawaa.jpg" alt="Hawaa">
+        <h3>50ml – Hawaa</h3>
+        <p class="inspired">Inspired by So Scandal JPG</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Hawaa">Buy Now</button>
+      </div>
+
+      <!-- MM-Vanilla -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="MM-Vanilla.jpg" alt="MM-Vanilla">
+        <h3>50ml – MM-Vanilla</h3>
+        <p class="inspired">Inspired by Roses Vanille Mancera</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – MM-Vanilla">Buy Now</button>
+      </div>
+
+      <!-- Midnight-Glow -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Midnight-Glow.jpg" alt="Midnight-Glow">
+        <h3>50ml – Midnight-Glow</h3>
+        <p class="inspired">Inspired by Libre Intense YSL</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Midnight-Glow">Buy Now</button>
+      </div>
+
+      <!-- Nanise -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Nanise.jpg" alt="Nanise">
+        <h3>50ml – Nanise</h3>
+        <p class="inspired">Inspired by Idōl Lancōm</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Nanise">Buy Now</button>
+      </div>
+
+      <!-- Soft-Spring -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Soft-Spring.jpg" alt="Soft-Spring">
+        <h3>50ml – Soft-Spring</h3>
+        <p class="inspired">Inspired by Gangnam Bath and Body Works</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Soft-Spring">Buy Now</button>
+      </div>
+
+      <!-- Sweetie -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Sweetie.jpg" alt="Sweetie">
+        <h3>50ml – Sweetie</h3>
+        <p class="inspired">Inspired by Yara Candy Lattafa</p>
+        <p class="price">
+          <span class="old-price">310 EGP</span>
+          <span class="new-price">258 EGP</span>
+        </p>
+        <button class="buy-btn" data-product="50ml – Sweetie">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       MEN SECTION
+  =========================== -->
+  <section id="men">
+    <h2>Men</h2>
+    <div class="product-grid men-products">
+      <!-- Volcano -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Volcano.jpg" alt="Volcano">
+        <h3>50ml – Volcano</h3>
+        <p class="inspired">Inspired by Dunhill Desire Red</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Volcano">Buy Now</button>
+      </div>
+
+      <!-- Classic Fresh -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Classic-Fresh.jpg" alt="Classic Fresh">
+        <h3>50ml – Classic Fresh</h3>
+        <p class="inspired">Inspired by Bleu de Chanel</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Classic Fresh">Buy Now</button>
+      </div>
+
+      <!-- Dangerous -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Dangerous.jpg" alt="Dangerous">
+        <h3>50ml – Dangerous</h3>
+        <p class="inspired">Inspired by Sauvage Dior</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Dangerous">Buy Now</button>
+      </div>
+
+      <!-- Blue Sky -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Blue-Sky.png" alt="Blue Sky">
+        <h3>50ml – Blue Sky</h3>
+        <p class="inspired">Inspired by Imagination Louis Vuitton</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Blue Sky">Buy Now</button>
+      </div>
+
+      <!-- Waqar -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Waqar.jpg" alt="Waqar">
+        <h3>50ml – Waqar</h3>
+        <p class="inspired">Inspired by Stronger With You Intensely GA</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Waqar">Buy Now</button>
+      </div>
+
+      <!-- Iron Gentleman -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Iron-gentleman.jpg" alt="Iron Gentleman">
+        <h3>50ml – Iron Gentleman</h3>
+        <p class="inspired">Inspired by Le Male Le Parfum JPG</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Iron Gentleman">Buy Now</button>
+      </div>
+
+      <!-- Velvet Smoke -->
+      <div class="product-card">
+        <div class="discount-badge">-14% OFF</div>
+        <img src="Velvet-Smoke.jpg" alt="Velvet Smoke">
+        <h3>50ml – Velvet Smoke</h3>
+        <p class="inspired">Inspired by Tobacco Vanilla Tom Ford</p>
+        <p class="price"><span class="old-price">310 EGP</span><span class="new-price">258 EGP</span></p>
+        <button class="buy-btn" data-product="50ml – Velvet Smoke">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+</section> <!-- /#products -->
 
 <!-- ABOUT -->
 <section id="about">
@@ -181,22 +258,17 @@ Before Nawwar was born as a brand, passion for perfumer was born in the heart of
 From this rich legacy, Nawwar was launched to guarantee you exceptional quality and a unique experience that is hard to find. We create perfumes with a unique signature that capturing your personality and leaving an unforgettable impression..</p>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <h2>Contact Us</h2>
-  <p><a href="https://www.instagram.com/nawwarperfume?igsh=NnVrbXg2cWp6OWU1" target="_blank">https://www.instagram.com/nawwarperfume?igsh=NnVrbXg2cWp6OWU1</a></p>
+  <p><a href="https://www.instagram.com/nawwarperfume" target="_blank" rel="noopener noreferrer">https://www.instagram.com/nawwarperfume</a></p>
 </section>
-
-
 
 <footer>
   <p>&copy; 2025 Nawwar Perfumes. All rights reserved.</p>
 </footer>
 
 <script src="script.js" defer></script>
-</body>
-</html>
-
-  <script src="script.js" defer></script>
 </body>
 </html>
 

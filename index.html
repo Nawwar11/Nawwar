@@ -7,6 +7,111 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===============================
+       NEW FEATURES ADDITIONS
+       =============================== */
+
+    /* Luxury hover effect for product cards */
+    .product-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* CTA buttons luxury style */
+    .cta-btn, .buy-btn {
+      transition: all 0.3s ease;
+    }
+    .cta-btn:hover, .buy-btn:hover {
+      transform: scale(1.05);
+      background-color: #d4af37; /* gold accent */
+      color: #fff;
+    }
+
+    /* Mobile hero text overlay */
+    @media (max-width: 768px) {
+      .hero-content {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 10;
+        background: rgba(0,0,0,0.4);
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .hero-images .hero-photo, .hero-images .signature-photo {
+        max-width: 100%;
+        display: block;
+      }
+    }
+
+    /* Quick View Modal */
+    .quick-view-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: #fff;
+      padding: 20px;
+      max-width: 500px;
+      width: 90%;
+      border-radius: 10px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 999;
+    }
+    .quick-view-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .quick-view-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 998;
+    }
+    .quick-view-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quick-view-content img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .quick-view-content h3 {
+      margin: 10px 0 5px 0;
+    }
+    .quick-view-content p {
+      margin: 5px 0;
+    }
+    .quick-view-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Smooth scroll for in-page links */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
 
@@ -63,7 +168,7 @@
       <div class="luxury-frame feminine">
         <div class="product-grid women-products">
 
-          <!-- BlushBerry -->
+          <!-- ORIGINAL PRODUCT CARDS -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="BlushBerry.jpg" alt="BlushBerry Perfume">
@@ -76,7 +181,6 @@
             <button class="buy-btn" data-product="50ml – BlushBerry">Buy Now</button>
           </div>
 
-          <!-- Desire -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Desire.jpg" alt="Desire Perfume">
@@ -89,7 +193,6 @@
             <button class="buy-btn" data-product="50ml – Desire">Buy Now</button>
           </div>
 
-          <!-- Fakhama -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Fakhama.jpg" alt="Fakhama Perfume">
@@ -102,7 +205,6 @@
             <button class="buy-btn" data-product="50ml – Fakhama">Buy Now</button>
           </div>
 
-          <!-- Hawaa -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Hawaa.jpg" alt="Hawaa Perfume">
@@ -115,7 +217,6 @@
             <button class="buy-btn" data-product="50ml – Hawaa">Buy Now</button>
           </div>
 
-          <!-- MM-Vanilla -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="MM-Vanilla.jpg" alt="MM-Vanilla Perfume">
@@ -128,7 +229,6 @@
             <button class="buy-btn" data-product="50ml – MM-Vanilla">Buy Now</button>
           </div>
 
-          <!-- Midnight-Glow -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Midnight-Glow.jpg" alt="Midnight-Glow Perfume">
@@ -141,7 +241,6 @@
             <button class="buy-btn" data-product="50ml – Midnight-Glow">Buy Now</button>
           </div>
 
-          <!-- Nanise -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Nanise.jpg" alt="Nanise Perfume">
@@ -154,7 +253,6 @@
             <button class="buy-btn" data-product="50ml – Nanise">Buy Now</button>
           </div>
 
-          <!-- Soft-Spring -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Soft-Spring.jpg" alt="Soft-Spring Perfume">
@@ -167,7 +265,6 @@
             <button class="buy-btn" data-product="50ml – Soft-Spring">Buy Now</button>
           </div>
 
-          <!-- Sweetie -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Sweetie.jpg" alt="Sweetie Perfume">
@@ -192,7 +289,7 @@
       <div class="luxury-frame masculine">
         <div class="product-grid men-products">
 
-          <!-- Volcano -->
+          <!-- ORIGINAL PRODUCT CARDS -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Volcano.jpg" alt="Volcano Perfume">
@@ -202,7 +299,6 @@
             <button class="buy-btn" data-product="50ml – Volcano">Buy Now</button>
           </div>
 
-          <!-- Classic Fresh -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Classic-Fresh.jpg" alt="Classic Fresh Perfume">
@@ -212,7 +308,6 @@
             <button class="buy-btn" data-product="50ml – Classic Fresh">Buy Now</button>
           </div>
 
-          <!-- Dangerous -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Dangerous.jpg" alt="Dangerous Perfume">
@@ -222,7 +317,6 @@
             <button class="buy-btn" data-product="50ml – Dangerous">Buy Now</button>
           </div>
 
-          <!-- Blue Sky -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Blue-Sky.png" alt="Blue Sky Perfume">
@@ -232,7 +326,6 @@
             <button class="buy-btn" data-product="50ml – Blue Sky">Buy Now</button>
           </div>
 
-          <!-- Waqar -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Waqar.jpg" alt="Waqar Perfume">
@@ -242,7 +335,6 @@
             <button class="buy-btn" data-product="50ml – Waqar">Buy Now</button>
           </div>
 
-          <!-- Iron Gentleman -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Iron-gentleman.jpg" alt="Iron Gentleman Perfume">
@@ -252,7 +344,6 @@
             <button class="buy-btn" data-product="50ml – Iron Gentleman">Buy Now</button>
           </div>
 
-          <!-- Velvet Smoke -->
           <div class="product-card">
             <div class="discount-badge">-14% OFF</div>
             <img src="Velvet-Smoke.jpg" alt="Velvet Smoke Perfume">
@@ -284,6 +375,65 @@
 <footer>
   <p>&copy; 2025 Nawwar Perfumes. All rights reserved.</p>
 </footer>
+
+<script>
+  /* ===============================
+     QUICK VIEW BUTTONS + MODAL
+     =============================== */
+  document.addEventListener('DOMContentLoaded', function() {
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(card => {
+      const quickBtn = document.createElement('button');
+      quickBtn.textContent = 'Quick View';
+      quickBtn.classList.add('quick-view-btn');
+      quickBtn.style.marginTop = '5px';
+      card.appendChild(quickBtn);
+    });
+
+    // Create modal elements
+    const modalOverlay = document.createElement('div');
+    modalOverlay.classList.add('quick-view-overlay');
+    document.body.appendChild(modalOverlay);
+
+    const modal = document.createElement('div');
+    modal.classList.add('quick-view-modal');
+    modal.innerHTML = `<span class="quick-view-close">&times;</span><div class="quick-view-content"></div>`;
+    document.body.appendChild(modal);
+
+    const modalContent = modal.querySelector('.quick-view-content');
+    const closeModal = () => {
+      modal.classList.remove('active');
+      modalOverlay.classList.remove('active');
+    };
+
+    modalOverlay.addEventListener('click', closeModal);
+    modal.querySelector('.quick-view-close').addEventListener('click', closeModal);
+
+    document.querySelectorAll('.quick-view-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parentCard = btn.closest('.product-card');
+        const imgSrc = parentCard.querySelector('img').src;
+        const title = parentCard.querySelector('h3').textContent;
+        const inspired = parentCard.querySelector('.inspired').textContent;
+        const price = parentCard.querySelector('.price').innerHTML;
+
+        modalContent.innerHTML = `
+          <img src="${imgSrc}" alt="${title}">
+          <h3>${title}</h3>
+          <p>${inspired}</p>
+          <p>${price}</p>
+          <button class="buy-btn">Buy Now</button>
+        `;
+
+        modal.classList.add('active');
+        modalOverlay.classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
 
 <script src="script.js" defer></script>
 </body>

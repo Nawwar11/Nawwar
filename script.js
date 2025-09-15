@@ -32,7 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (link && link.getAttribute("href") === "#") {
           e.preventDefault();
         }
+        // close others before opening
+        dropdowns.forEach(d => {
+          if (d !== dropdown) d.classList.remove("active");
+        });
         dropdown.classList.toggle("active");
+
         const subMenu = dropdown.querySelector(".dropdown-menu");
         if (subMenu) subMenu.classList.toggle("active");
       }

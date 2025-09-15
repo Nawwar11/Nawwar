@@ -129,13 +129,24 @@ nav .nav-links a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero .overlay {
-  background: rgba(0, 0, 0, 0.45);
-  color: white;
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
   padding: 2rem;
-  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  z-index: 2;
+}
+
+.hero .hero-content {
+  max-width: 600px;
+  color: white;
 }
 
 .hero h1 {
@@ -156,6 +167,24 @@ nav .nav-links a:hover {
 
 .cta-btn:hover {
   background: #7c5079;
+}
+
+/* ===== HERO PHOTO (ADDED) ===== */
+.hero-photo {
+  width: 320px;
+  max-width: 34%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  object-fit: cover;
+  display: block;
+}
+
+/* make hero-photo smaller on mobile */
+@media (max-width: 880px) {
+  .hero .overlay { flex-direction: column; padding: 1.2rem; }
+  .hero-photo { max-width: 80%; width: 260px; margin-top: 1rem; }
+  .hero h1 { font-size: 1.8rem; }
 }
 
 /* ===== Products Section ===== */

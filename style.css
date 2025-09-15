@@ -121,6 +121,8 @@ nav .nav-links a:hover {
   background: #e6c200;
   transform: translateY(-2px);
 }
+
+/* ===== Hero Images ===== */
 .hero-photo {
   position: absolute;
   top: 0;
@@ -129,6 +131,18 @@ nav .nav-links a:hover {
   height: 100%;
   object-fit: cover;
   z-index: 1;
+}
+.signature-photo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 220px;
+  max-width: 22%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  z-index: 3;
 }
 
 /* ===== Products ===== */
@@ -226,6 +240,18 @@ footer {
 }
 
 /* ===== Responsive ===== */
+@media (max-width: 880px) {
+  .signature-photo {
+    position: relative;
+    width: 80%;
+    max-width: 260px;
+    margin: 1rem auto 0 auto;
+    display: block;
+  }
+  .hero-content {
+    padding: 1rem;
+  }
+}
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
@@ -245,4 +271,5 @@ footer {
     display: block;
   }
 }
+
 

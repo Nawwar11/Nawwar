@@ -323,5 +323,50 @@ footer {
     display: block;
   }
 }
+/* ===== Mobile Hero Text Overlay ===== */
+@media (max-width: 768px) {
+  .hero {
+    height: auto; /* let it grow with content */
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: relative; /* keep behind text */
+    z-index: 1;
+  }
+
+  .hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* overlay above banner */
+    background: rgba(0,0,0,0.3); /* optional: slight overlay for text readability */
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3; /* text above everything */
+    padding: 0 1rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  .signature-photo {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: 1rem auto 0 auto;
+    display: block;
+    z-index: 3;
+  }
+}
+
 
 

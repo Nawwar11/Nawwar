@@ -225,6 +225,29 @@ nav .nav-links a:hover {
   transform: scale(1.05);
 }
 
+/* ===== Luxury Frames for Women & Men ===== */
+.luxury-frame {
+  padding: 2rem;
+  border: 3px solid #ffd700;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  margin-bottom: 3rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.luxury-frame:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+}
+.luxury-frame.feminine {
+  border-color: #ff69b4; /* pink/gold vibe for women */
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+}
+.luxury-frame.masculine {
+  border-color: #1e90ff; /* blue/gold vibe for men */
+  box-shadow: 0 0 30px rgba(30, 144, 255, 0.5);
+}
+
 /* ===== About & Contact ===== */
 #about, #contact {
   padding: 3rem 2rem;
@@ -280,7 +303,7 @@ footer {
 
   /* Fix hero layout */
   .hero {
-    height: auto; /* let it grow with content */
+    height: auto;
     text-align: center;
   }
   .hero-photo {
@@ -300,4 +323,5 @@ footer {
     display: block;
   }
 }
+
 

@@ -1,139 +1,149 @@
-// script.js - full behavior (hamburger, dropdown mobile, smooth scroll, buy button, rendering fix)
-// Keep this file as "script.js" and include it with defer in your HTML.
+// script.js - handles nav, dropdown, smooth scroll, buy button, rendering fix
+// Include in HTML with: <script src="script.js" defer></script>
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- NAV / HAMBURGER ---------- */
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".nav-links");
 
   if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      // close any open dropdowns when toggling nav
+      document.querySelectorAll(".dropdown.active").forEach(d => d.classList.remove("active"));
     });
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') hamburger.click();
+
+    // accessibility: toggle with keyboard
+    hamburger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        hamburger.click();
+      }
     });
   }
 
-  /* ---------- DROPDOWN MOBILE TOGGLE ---------- */
-  const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
+  /* ---------- DROPDOWN (MOBILE) ---------- */
+  const dropdowns = document.querySelectorAll(".dropdown");
   dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', (e) => {
+    dropdown.addEventListener("click", (e) => {
       if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdown.classList.toggle('active');
-        const sub = dropdown.querySelector('.dropdown-menu');
-        if (sub) sub.classList.toggle('active');
+        const link = dropdown.querySelector("a");
+        if (link && link.getAttribute("href") === "#") {
+          e.preventDefault();
+        }
+        dropdown.classList.toggle("active");
+        const subMenu = dropdown.querySelector(".dropdown-menu");
+        if (subMenu) subMenu.classList.toggle("active");
       }
     });
   });
 
-  /* ---------- SMOOTH SCROLL FOR NAV LINKS ---------- */
-  const navAnchors = Array.from(document.querySelectorAll('nav .nav-links a'));
-  navAnchors.forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const href = anchor.getAttribute('href');
-      if (href && href.startsWith('#')) {
+  /* ---------- SMOOTH SCROLL ---------- */
+  document.querySelectorAll("nav .nav-links a[href^='#']").forEach(anchor => {
+    anchor.addEventListener("click", (e) => {
+      const targetId = anchor.getAttribute("href").substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
         e.preventDefault();
-        const id = href.slice(1);
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      // close nav after click (mobile UX)
+      if (navLinks && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active");
       }
     });
   });
 
-  /* ---------- BUY BUTTON: copy product info + open Instagram ---------- */
+  /* ---------- BUY BUTTON ---------- */
   const instaUrl = "https://www.instagram.com/nawwarperfume/";
-  const buyButtons = Array.from(document.querySelectorAll('.buy-btn'));
+  const buyButtons = document.querySelectorAll(".buy-btn");
 
   function showToast(msg, duration = 1800) {
-    let toast = document.querySelector('.site-toast');
+    let toast = document.querySelector(".site-toast");
     if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'site-toast';
+      toast = document.createElement("div");
+      toast.className = "site-toast";
       Object.assign(toast.style, {
-        position: 'fixed',
-        right: '20px',
-        bottom: '20px',
-        background: 'rgba(17,17,17,0.9)',
-        color: '#fff',
-        padding: '10px 14px',
-        borderRadius: '8px',
-        zIndex: 99999,
-        fontSize: '14px',
-        opacity: '0',
-        transition: 'opacity 200ms ease'
+        position: "fixed",
+        right: "20px",
+        bottom: "20px",
+        background: "rgba(17,17,17,0.9)",
+        color: "#fff",
+        padding: "10px 14px",
+        borderRadius: "8px",
+        zIndex: 9999,
+        fontSize: "14px",
+        opacity: "0",
+        transition: "opacity 0.2s ease"
       });
       document.body.appendChild(toast);
     }
     toast.textContent = msg;
-    toast.style.opacity = '1';
-    window.clearTimeout(toast._timeoutId);
-    toast._timeoutId = setTimeout(() => { toast.style.opacity = '0'; }, duration);
+    toast.style.opacity = "1";
+    clearTimeout(toast._timeoutId);
+    toast._timeoutId = setTimeout(() => {
+      toast.style.opacity = "0";
+    }, duration);
   }
 
-  function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text);
-    }
-    return new Promise((resolve, reject) => {
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.left = '-9999px';
-      document.body.appendChild(ta);
-      ta.select();
-      try {
-        document.execCommand('copy');
+  async function copyToClipboard(text) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.left = "-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
         document.body.removeChild(ta);
-        resolve();
-      } catch (err) {
-        document.body.removeChild(ta);
-        reject(err);
       }
-    });
+    } catch (err) {
+      console.warn("Clipboard failed:", err);
+    }
   }
 
   buyButtons.forEach(btn => {
-    btn.addEventListener('click', async () => {
-      const product = btn.getAttribute('data-product') || btn.closest('.product-card')?.querySelector('h3')?.innerText || 'product';
+    btn.addEventListener("click", async () => {
+      const product =
+        btn.getAttribute("data-product") ||
+        btn.closest(".product-card")?.querySelector("h3")?.innerText ||
+        "product";
+
       const message = `Hi Nawwar, I want to buy ${product} (50ml) — 258 EGP.`;
-      try { 
-        await copyToClipboard(message); 
-        showToast('Product info copied — opening Instagram'); 
+
+      try {
+        await copyToClipboard(message);
+        showToast("Product info copied — opening Instagram");
+      } catch {
+        showToast("Opening Instagram (copy failed)");
       }
-      catch { 
-        showToast('Opening Instagram (copy to clipboard failed)'); 
-      }
-      window.open(instaUrl, '_blank', 'noopener');
+
+      window.open(instaUrl, "_blank", "noopener,noreferrer");
     });
   });
 
-  /* ---------- MOBILE / CHROME FIX: Ensure sections + images display properly ---------- */
+  /* ---------- FIX IMAGE / SECTION RENDERING ---------- */
   function fixProductRendering() {
-    const imgs = document.querySelectorAll('.product-card img');
-    imgs.forEach(img => {
-      img.style.width = '100%';
-      img.style.height = 'auto';
-      img.style.maxHeight = 'none';
-      img.style.objectFit = 'contain';
-      img.style.display = 'block';
+    document.querySelectorAll(".product-card img").forEach(img => {
+      img.style.width = "100%";
+      img.style.height = "auto";
+      img.style.objectFit = "contain";
+      img.style.display = "block";
     });
-    const sections = document.querySelectorAll('section');
-    sections.forEach(sec => {
-      const comp = window.getComputedStyle(sec);
-      if (comp.display !== 'none' && parseFloat(comp.minHeight) === 0) {
-        sec.style.minHeight = '50px';
+
+    document.querySelectorAll("section").forEach(sec => {
+      if (sec.offsetHeight === 0) {
+        sec.style.minHeight = "50px";
       }
     });
   }
 
-  // Run on load + resize + after images fully load
   fixProductRendering();
-  window.addEventListener('resize', fixProductRendering);
-  window.addEventListener('load', fixProductRendering);
+  window.addEventListener("resize", fixProductRendering);
+  window.addEventListener("load", fixProductRendering);
 
-}); // DOMContentLoaded end
+});

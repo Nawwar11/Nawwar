@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".dropdown-menu.active").forEach(m => m.classList.remove("active"));
     });
 
-    // accessibility: toggle with keyboard
     hamburger.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -29,13 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------- DROPDOWN (MOBILE) ---------- */
+  /* ---------- DROPDOWN (MOBILE & DESKTOP) ---------- */
   const dropdowns = document.querySelectorAll(".dropdown");
 
   const handleMobileDropdown = (dropdown) => {
     if (window.innerWidth <= 768) {
       const subMenu = dropdown.querySelector(".dropdown-menu");
-      // close others before opening
       dropdowns.forEach(d => {
         if (d !== dropdown) d.classList.remove("active");
         const sm = d.querySelector(".dropdown-menu");
@@ -54,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Close dropdowns if resizing above mobile
+  // Reset dropdowns on resize above mobile
   window.addEventListener('resize', () => {
     if(window.innerWidth > 768) {
       dropdowns.forEach(d => d.classList.remove('active'));
@@ -71,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-      // close nav after click (mobile UX)
       if (navLinks && navLinks.classList.contains("active")) {
         navLinks.classList.remove("active");
         hamburger.setAttribute("aria-expanded", "false");
@@ -151,28 +148,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ---------- FIX IMAGE / SECTION RENDERING ---------- */
-  function fixProductRendering() {
+  function fixRendering() {
     document.querySelectorAll(".product-card img").forEach(img => {
-      if (!img.style.objectFit) {
-        img.style.objectFit = "contain";
-      }
+      if (!img.style.objectFit) img.style.objectFit = "contain";
     });
-
     document.querySelectorAll(".hero-photo, .signature-photo").forEach(img => {
-      if (!img.style.objectFit) {
-        img.style.objectFit = "cover";
-      }
+      if (!img.style.objectFit) img.style.objectFit = "cover";
     });
-
     document.querySelectorAll("section").forEach(sec => {
-      if (sec.offsetHeight === 0) {
-        sec.style.minHeight = "50px";
-      }
+      if (sec.offsetHeight === 0) sec.style.minHeight = "50px";
     });
   }
 
-  fixProductRendering();
-  window.addEventListener("resize", fixProductRendering);
-  window.addEventListener("load", fixProductRendering);
+  fixRendering();
+  window.addEventListener("resize", fixRendering);
+  window.addEventListener("load", fixRendering);
 
 });
+

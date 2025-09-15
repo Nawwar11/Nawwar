@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     dropdown.addEventListener("click", (e) => {
       if (window.innerWidth <= 768) {
         const link = dropdown.querySelector("a");
-        if (link && link.getAttribute("href") === "#") {
-          e.preventDefault();
-        }
+        if (link && link.getAttribute("href") === "#") e.preventDefault();
         // close others before opening
         dropdowns.forEach(d => {
           if (d !== dropdown) d.classList.remove("active");

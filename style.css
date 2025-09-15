@@ -21,7 +21,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(0, 0, 0, 0.92); /* luxurious black glass */
+  background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(6px);
   position: sticky;
   top: 0;
@@ -257,6 +257,8 @@ footer {
     padding: 1rem;
   }
 }
+
+/* ===== MOBILE HERO FIX ===== */
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
@@ -275,4 +277,27 @@ footer {
   .hamburger {
     display: block;
   }
+
+  /* Fix hero layout */
+  .hero {
+    height: auto; /* let it grow with content */
+    text-align: center;
+  }
+  .hero-photo {
+    position: relative;
+    height: auto;
+  }
+  .hero-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: 1rem;
+  }
+  .signature-photo {
+    position: relative;
+    margin: 1rem auto 0 auto;
+    display: block;
+  }
 }
+

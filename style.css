@@ -120,17 +120,24 @@ nav .nav-links a:hover {
   }
 }
 
-/* ===== Hero ===== */
 .hero {
-  position: relative;
-  height: 90vh;
-  background: url('hero-bg.jpg') center/cover no-repeat;
+  height: 100vh;
+  background: url("images/banner.jpg") no-repeat center center/cover;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  overflow: hidden;
+  color: #fff;
+  position: relative;
 }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4); /* dark overlay */
+}
+
 
 .hero .overlay {
   position: relative;

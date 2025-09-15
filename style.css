@@ -8,6 +8,7 @@ body {
   color: #2c2c2c;
   scroll-behavior: smooth;
   -webkit-font-smoothing:antialiased;
+  overflow-x: hidden; /* prevent horizontal clipping on mobile */
 }
 
 /* ===== Navbar ===== */
@@ -136,6 +137,7 @@ section {
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   background: linear-gradient(to right, #fdf6f0, #f6f0f8);
   border-top: 1px solid rgba(0,0,0,0.04);
+  min-height: 50px; /* ensure Chrome mobile renders the section */
 }
 section.fade-in { opacity:1; transform: translateY(0); }
 
@@ -170,35 +172,15 @@ h2 {
   cursor: default;
   font-family: 'Playfair Display', serif;
 }
-
-/* UPDATED IMAGE STYLING */
 .product-card img {
-  width: 100%;           /* full width of card */
-  height: auto;          /* maintain aspect ratio */
-  max-height: none;      /* remove height restriction */
-  object-fit: contain;   /* show entire image */
+  width: 100%;
+  height: auto !important;       /* keep full aspect ratio */
+  object-fit: contain !important; /* show entire image */
+  display: block;                /* fix Chrome mobile collapsing */
   border-radius: 10px;
-  margin-bottom: 12px;
+  margin-bottom:12px;
   transition: transform 0.4s ease;
 }
-
-/* Mobile responsiveness for images */
-@media (max-width: 768px) {
-  .product-card img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
-@media (max-width: 540px) {
-  .product-card img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-}
-
 .product-card h3 {
   font-size:1.15rem;
   margin:6px 0;
@@ -302,17 +284,15 @@ footer {
 /* Responsive refinements */
 @media (max-width: 768px) {
   .product-card img {
-    height: auto;
-    max-height: 200px; /* optional, can remove */
+    height: auto !important;
+    max-height: 200px;
   }
 }
 @media (max-width: 540px) {
   .product-card img {
-    height: auto;
-    max-height: 160px; /* optional, can remove */
+    height: auto !important;
+    max-height: 160px;
   }
   .hero h1 { font-size:1.6rem; }
   .cta-btn { padding: 0.6rem 1rem; }
 }
-
-

@@ -1,258 +1,280 @@
-/* ===== General Styles ===== */
+/* ===== Reset & Base ===== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
   height: 100%;
-}
-
-body {
-  margin: 0;
   font-family: 'Playfair Display', serif;
   background: linear-gradient(135deg, #fdf6f0, #f0e7f2);
   color: #2c2c2c;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-/* ===== Navigation ===== */
+/* ===== Navbar ===== */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-nav h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #6a0572;
-  letter-spacing: 1px;
+nav .logo img {
+  height: 45px;
 }
 
-nav ul {
+nav .nav-links {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 1.5rem;
 }
 
-nav ul li a {
+nav .nav-links li {
+  position: relative;
+}
+
+nav .nav-links a {
   text-decoration: none;
-  color: #444;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #2c2c2c;
+  font-weight: 600;
+  transition: color 0.3s;
 }
 
-nav ul li a:hover {
-  color: #6a0572;
+nav .nav-links a:hover {
+  color: #9c6b99;
 }
 
-/* ===== Hero Section ===== */
+/* ===== Dropdown ===== */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  list-style: none;
+  min-width: 150px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #2c2c2c;
+}
+
+.dropdown-menu li a:hover {
+  background: #f5f1f7;
+  color: #9c6b99;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===== Hamburger (Mobile) ===== */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    width: 220px;
+    padding: 1rem;
+    border-radius: 0 0 6px 6px;
+  }
+
+  nav .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .dropdown-menu li a {
+    padding: 0.5rem 0;
+  }
+}
+
+/* ===== Hero ===== */
 .hero {
-  height: 100vh;
+  position: relative;
+  height: 90vh;
+  background: url('hero-bg.jpg') center/cover no-repeat;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
 }
 
-.hero h2 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-  color: #4a154b;
-  line-height: 1.3;
+.hero .overlay {
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
 }
 
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-  color: #555;
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.hero button {
-  padding: 14px 36px;
-  border: none;
-  border-radius: 50px;
-  background: #6a0572;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 16px rgba(106,5,114,0.3);
+.cta-btn {
+  display: inline-block;
+  background: #9c6b99;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
-.hero button:hover {
-  background: #52045a;
-  transform: translateY(-2px);
+.cta-btn:hover {
+  background: #7c5079;
 }
 
 /* ===== Products Section ===== */
-.products {
-  padding: 80px 40px;
-  text-align: center;
+#products {
+  padding: 3rem 2rem;
 }
 
-.products h2 {
-  font-size: 2.4rem;
-  margin-bottom: 40px;
-  color: #4a154b;
+#products h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #333;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
 }
 
-.product {
-  background: #fff;
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.product-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s;
 }
 
-.product:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+.product-card:hover {
+  transform: translateY(-5px);
 }
 
-.product img {
-  width: 100%;
-  border-radius: 14px;
-  margin-bottom: 18px;
+.product-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 1rem;
 }
 
-.product h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+.discount-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #e63946;
+  color: white;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.product-card .inspired {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.product-card .price {
+  margin-bottom: 1rem;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 6px;
+}
+
+.new-price {
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+.buy-btn {
+  background: #9c6b99;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.buy-btn:hover {
+  background: #7c5079;
+}
+
+/* ===== Sections (About, Contact) ===== */
+#about, #contact {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+#about h2, #contact h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
   color: #333;
 }
 
-.product p {
-  font-size: 1rem;
-  margin-bottom: 16px;
-  color: #666;
-}
-
-.product button {
-  padding: 12px 26px;
-  border: none;
-  border-radius: 30px;
-  background: #6a0572;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.product button:hover {
-  background: #52045a;
-  transform: translateY(-2px);
-}
-
-/* ===== About Section ===== */
-.about {
-  padding: 80px 40px;
-  text-align: center;
-  background: #f7f0f9;
-}
-
-.about h2 {
-  font-size: 2.4rem;
-  margin-bottom: 24px;
-  color: #4a154b;
-}
-
-.about p {
-  font-size: 1.2rem;
-  color: #444;
+#about p, #contact p {
   max-width: 800px;
   margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* ===== Contact Section ===== */
-.contact {
-  padding: 80px 40px;
-  text-align: center;
-}
-
-.contact h2 {
-  font-size: 2.4rem;
-  margin-bottom: 24px;
-  color: #4a154b;
-}
-
-.contact p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 24px;
-}
-
-.contact button {
-  padding: 14px 36px;
-  border: none;
-  border-radius: 50px;
-  background: #6a0572;
-  color: #fff;
   font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.contact button:hover {
-  background: #52045a;
-  transform: translateY(-2px);
+  color: #444;
 }
 
 /* ===== Footer ===== */
 footer {
   text-align: center;
-  padding: 28px;
-  background: #4a154b;
-  color: #fff;
+  padding: 1.5rem;
+  background: #2c2c2c;
+  color: white;
   font-size: 0.9rem;
-  margin-top: 60px;
+  margin-top: 2rem;
 }
 
-/* ===== Mobile Responsiveness ===== */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 18px;
-    padding: 14px 20px;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 14px;
-    align-items: center;
-  }
-
-  .hero h2 {
-    font-size: 2rem;
-  }
-
-  .hero p {
-    font-size: 1rem;
-  }
-
-  .products {
-    padding: 60px 20px;
-  }
-
-  .about, .contact {
-    padding: 60px 20px;
-  }
-}

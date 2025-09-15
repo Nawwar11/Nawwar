@@ -8,10 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelector(".nav-links");
 
   if (hamburger && navLinks) {
+    const updateAria = () => {
+      hamburger.setAttribute("aria-expanded", navLinks.classList.contains("active"));
+    };
+
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("active");
+      updateAria();
       // close any open dropdowns when toggling nav
       document.querySelectorAll(".dropdown.active").forEach(d => d.classList.remove("active"));
+      document.querySelectorAll(".dropdown-menu.active").forEach(m => m.classList.remove("active"));
     });
 
     // accessibility: toggle with keyboard
@@ -25,20 +31,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- DROPDOWN (MOBILE) ---------- */
   const dropdowns = document.querySelectorAll(".dropdown");
+
+  const handleMobileDropdown = (dropdown) => {
+    if (window.innerWidth <= 768) {
+      const subMenu = dropdown.querySelector(".dropdown-menu");
+      // close others before opening
+      dropdowns.forEach(d => {
+        if (d !== dropdown) d.classList.remove("active");
+        const sm = d.querySelector(".dropdown-menu");
+        if (sm) sm.classList.remove("active");
+      });
+      dropdown.classList.toggle("active");
+      if (subMenu) subMenu.classList.toggle("active");
+    }
+  };
+
   dropdowns.forEach(dropdown => {
     dropdown.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        const link = dropdown.querySelector("a");
-        if (link && link.getAttribute("href") === "#") e.preventDefault();
-        // close others before opening
-        dropdowns.forEach(d => {
-          if (d !== dropdown) d.classList.remove("active");
-        });
-        dropdown.classList.toggle("active");
-
-        const subMenu = dropdown.querySelector(".dropdown-menu");
-        if (subMenu) subMenu.classList.toggle("active");
-      }
+      const link = dropdown.querySelector("a");
+      if (link && link.getAttribute("href") === "#") e.preventDefault();
+      handleMobileDropdown(dropdown);
     });
   });
 
@@ -51,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ---------- SMOOTH SCROLL ---------- */
-  document.querySelectorAll("nav .nav-links a[href^='#']").forEach(anchor => {
+  document.querySelectorAll("a[href^='#']").forEach(anchor => {
     anchor.addEventListener("click", (e) => {
       const targetId = anchor.getAttribute("href").substring(1);
       const target = document.getElementById(targetId);
@@ -62,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // close nav after click (mobile UX)
       if (navLinks && navLinks.classList.contains("active")) {
         navLinks.classList.remove("active");
+        hamburger.setAttribute("aria-expanded", "false");
       }
     });
   });
@@ -86,15 +99,17 @@ document.addEventListener("DOMContentLoaded", () => {
         zIndex: 9999,
         fontSize: "14px",
         opacity: "0",
-        transition: "opacity 0.2s ease"
+        transition: "opacity 0.2s ease, transform 0.2s ease",
       });
       document.body.appendChild(toast);
     }
     toast.textContent = msg;
     toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
     clearTimeout(toast._timeoutId);
     toast._timeoutId = setTimeout(() => {
       toast.style.opacity = "0";
+      toast.style.transform = "translateY(10px)";
     }, duration);
   }
 
@@ -119,12 +134,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   buyButtons.forEach(btn => {
     btn.addEventListener("click", async () => {
-      const product =
-        btn.getAttribute("data-product") ||
-        btn.closest(".product-card")?.querySelector("h3")?.innerText ||
-        "product";
-
-      const message = `Hi Nawwar, I want to buy ${product} (50ml) — 258 EGP.`;
+      const product = btn.dataset.product || btn.closest(".product-card")?.querySelector("h3")?.innerText || "product";
+      const size = btn.dataset.size || "50ml";
+      const price = btn.dataset.price || "258 EGP";
+      const message = `Hi Nawwar, I want to buy ${product} (${size}) — ${price}.`;
 
       try {
         await copyToClipboard(message);
@@ -139,23 +152,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- FIX IMAGE / SECTION RENDERING ---------- */
   function fixProductRendering() {
-    // Product card images
     document.querySelectorAll(".product-card img").forEach(img => {
-      img.style.width = "100%";
-      img.style.height = "auto";
-      img.style.objectFit = "contain";
-      img.style.display = "block";
+      if (!img.style.objectFit) {
+        img.style.objectFit = "contain";
+      }
     });
 
-    // Hero and signature photo
     document.querySelectorAll(".hero-photo, .signature-photo").forEach(img => {
-      img.style.width = "100%";
-      img.style.height = "auto";
-      img.style.objectFit = "cover";
-      img.style.display = "block";
+      if (!img.style.objectFit) {
+        img.style.objectFit = "cover";
+      }
     });
 
-    // Sections with zero height fallback
     document.querySelectorAll("section").forEach(sec => {
       if (sec.offsetHeight === 0) {
         sec.style.minHeight = "50px";

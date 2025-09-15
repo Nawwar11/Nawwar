@@ -137,7 +137,7 @@ section {
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   background: linear-gradient(to right, #fdf6f0, #f6f0f8);
   border-top: 1px solid rgba(0,0,0,0.04);
-  min-height: 50px; /* ensure Chrome mobile renders the section */
+  min-height: 120px; /* Increased to ensure mobile Chrome renders */
 }
 section.fade-in { opacity:1; transform: translateY(0); }
 

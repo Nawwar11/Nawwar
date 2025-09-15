@@ -1,5 +1,5 @@
-// script.js - full behavior (hamburger, dropdown mobile, smooth scroll, observers, buy button)
-// Keep this file as "script.js" and included with defer in your HTML.
+// script.js - full behavior (hamburger, dropdown mobile, smooth scroll, buy button, rendering fix)
+// Keep this file as "script.js" and include it with defer in your HTML.
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -44,48 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  /* ---------- INTERSECTION OBSERVERS: SECTIONS + CARDS ---------- */
-  const sections = Array.from(document.querySelectorAll('section'));
-  const productCards = Array.from(document.querySelectorAll('.product-card'));
-
-  function revealSection(sec) {
-    sec.classList.add('fade-in');
-  }
-  function revealCard(card, delay = 80) {
-    setTimeout(() => card.classList.add('visible'), delay);
-  }
-
-  if ('IntersectionObserver' in window) {
-    const secObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          revealSection(entry.target);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    sections.forEach(s => secObserver.observe(s));
-
-    const cardObserver = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const delay = entry.target.dataset && entry.target.dataset.delay ? Number(entry.target.dataset.delay) : 80;
-          revealCard(entry.target, delay);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    productCards.forEach((card, i) => {
-      card.dataset.delay = i * 60;
-      cardObserver.observe(card);
-    });
-  } else {
-    sections.forEach(s => revealSection(s));
-    productCards.forEach(c => revealCard(c));
-  }
 
   /* ---------- BUY BUTTON: copy product info + open Instagram ---------- */
   const instaUrl = "https://www.instagram.com/nawwarperfume/";
@@ -143,8 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', async () => {
       const product = btn.getAttribute('data-product') || btn.closest('.product-card')?.querySelector('h3')?.innerText || 'product';
       const message = `Hi Nawwar, I want to buy ${product} (50ml) — 258 EGP.`;
-      try { await copyToClipboard(message); showToast('Product info copied — opening Instagram'); }
-      catch { showToast('Opening Instagram (copy to clipboard failed)'); }
+      try { 
+        await copyToClipboard(message); 
+        showToast('Product info copied — opening Instagram'); 
+      }
+      catch { 
+        showToast('Opening Instagram (copy to clipboard failed)'); 
+      }
       window.open(instaUrl, '_blank', 'noopener');
     });
   });
@@ -159,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
       img.style.objectFit = 'contain';
       img.style.display = 'block';
     });
+    const sections = document.querySelectorAll('section');
     sections.forEach(sec => {
       const comp = window.getComputedStyle(sec);
       if (comp.display !== 'none' && parseFloat(comp.minHeight) === 0) {
@@ -173,4 +137,3 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', fixProductRendering);
 
 }); // DOMContentLoaded end
-

@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
   navAnchors.forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const href = anchor.getAttribute('href');
-      // if it's a proper in-page link
       if (href && href.startsWith('#')) {
         e.preventDefault();
         const id = href.slice(1);
@@ -54,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = Array.from(document.querySelectorAll('section'));
   const productCards = Array.from(document.querySelectorAll('.product-card'));
 
-  // sections observer
   if ('IntersectionObserver' in window) {
     const secObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -67,11 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sections.forEach(s => secObserver.observe(s));
 
-    // product cards observer with small stagger
     const cardObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // small stagger:
           setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset && entry.target.dataset.delay ? Number(entry.target.dataset.delay) : 80);
           obs.unobserve(entry.target);
         }
@@ -122,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       return navigator.clipboard.writeText(text);
     }
-    // fallback
     return new Promise((resolve, reject) => {
       const ta = document.createElement('textarea');
       ta.value = text;
@@ -145,26 +140,31 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', async (e) => {
       const product = btn.getAttribute('data-product') || btn.closest('.product-card')?.querySelector('h3')?.innerText || 'product';
       const message = `Hi Nawwar, I want to buy ${product} (50ml) — 258 EGP.`;
-      // copy message to clipboard to help the buyer paste into Instagram DM
       try {
         await copyToClipboard(message);
         showToast('Product info copied — opening Instagram');
       } catch (err) {
         showToast('Opening Instagram (copy to clipboard failed)');
       }
-      // open Instagram page in new tab
       window.open(instaUrl, '_blank', 'noopener');
     });
   });
 
-  /* ---------- PRODUCT IMAGE FIX (no crop, full visible) ---------- */
+  /* ---------- MOBILE / CHROME FIX: Ensure sections + images display properly ---------- */
   function fixProductImages() {
     const imgs = document.querySelectorAll('.product-card img');
     imgs.forEach(img => {
       img.style.width = '100%';
       img.style.height = 'auto';
-      img.style.maxHeight = 'none';       // remove height restriction
-      img.style.objectFit = 'contain';    // show full image
+      img.style.maxHeight = 'none'; // prevent Chrome crop
+      img.style.objectFit = 'contain'; // show whole image
+      img.style.display = 'block';
+    });
+    // Chrome mobile rendering fix: force minimal height for sections
+    sections.forEach(sec => {
+      if (window.getComputedStyle(sec).display !== 'none') {
+        sec.style.minHeight = '50px';
+      }
     });
   }
   fixProductImages();

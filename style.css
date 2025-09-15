@@ -175,6 +175,12 @@ nav .nav-links a:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   position: relative;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* NEW hover effect */
+  cursor: pointer; /* NEW */
+}
+.product-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 .product-card img {
   max-width: 100%;
@@ -240,11 +246,11 @@ nav .nav-links a:hover {
   box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
 }
 .luxury-frame.feminine {
-  border-color: #ff69b4; /* pink/gold vibe for women */
+  border-color: #ff69b4; 
   box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
 }
 .luxury-frame.masculine {
-  border-color: #1e90ff; /* blue/gold vibe for men */
+  border-color: #1e90ff;
   box-shadow: 0 0 30px rgba(30, 144, 255, 0.5);
 }
 
@@ -311,15 +317,83 @@ footer {
     height: auto;
   }
   .hero-content {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    padding: 1rem;
+    position: absolute; /* NEW overlay for mobile */
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    background: rgba(0,0,0,0.4);
+    border-radius: 8px;
+    z-index: 10;
+    text-align: center;
   }
   .signature-photo {
     position: relative;
     margin: 1rem auto 0 auto;
     display: block;
   }
+}
+
+/* ===== Quick View Modal ===== */
+.quick-view-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #fff;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+.quick-view-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.quick-view-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+.quick-view-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.quick-view-content img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+.quick-view-content h3 {
+  margin: 10px 0 5px 0;
+}
+.quick-view-content p {
+  margin: 5px 0;
+}
+.quick-view-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== CTA & Buy Buttons Hover NEW ===== */
+.cta-btn, .buy-btn {
+  transition: all 0.3s ease;
+}
+.cta-btn:hover, .buy-btn:hover {
+  transform: scale(1.05);
+  background-color: #d4af37; /* gold accent */
+  color: #fff;
 }

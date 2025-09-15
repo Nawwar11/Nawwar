@@ -157,14 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ---------- MOBILE FIX: Ensure product images fit nicely ---------- */
+  /* ---------- PRODUCT IMAGE FIX (no crop, full visible) ---------- */
   function fixProductImages() {
     const imgs = document.querySelectorAll('.product-card img');
     imgs.forEach(img => {
       img.style.width = '100%';
       img.style.height = 'auto';
-      img.style.maxHeight = window.innerWidth <= 540 ? '180px' : '220px';
-      img.style.objectFit = 'cover';
+      img.style.maxHeight = 'none';       // remove height restriction
+      img.style.objectFit = 'contain';    // show full image
     });
   }
   fixProductImages();

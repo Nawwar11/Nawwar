@@ -44,6 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Close dropdowns if resizing above mobile
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 768) {
+      dropdowns.forEach(d => d.classList.remove('active'));
+      document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('active'));
+    }
+  });
+
   /* ---------- SMOOTH SCROLL ---------- */
   document.querySelectorAll("nav .nav-links a[href^='#']").forEach(anchor => {
     anchor.addEventListener("click", (e) => {
@@ -133,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- FIX IMAGE / SECTION RENDERING ---------- */
   function fixProductRendering() {
+    // Product card images
     document.querySelectorAll(".product-card img").forEach(img => {
       img.style.width = "100%";
       img.style.height = "auto";
@@ -140,6 +149,15 @@ document.addEventListener("DOMContentLoaded", () => {
       img.style.display = "block";
     });
 
+    // Hero and signature photo
+    document.querySelectorAll(".hero-photo, .signature-photo").forEach(img => {
+      img.style.width = "100%";
+      img.style.height = "auto";
+      img.style.objectFit = "cover";
+      img.style.display = "block";
+    });
+
+    // Sections with zero height fallback
     document.querySelectorAll("section").forEach(sec => {
       if (sec.offsetHeight === 0) {
         sec.style.minHeight = "50px";

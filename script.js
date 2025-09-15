@@ -10,10 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-      // also close any open dropdowns
       document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
     });
-    // keyboard support
     hamburger.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') hamburger.click();
     });
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const dropdowns = Array.from(document.querySelectorAll('.dropdown'));
   dropdowns.forEach(dropdown => {
     dropdown.addEventListener('click', (e) => {
-      // on mobile only: toggle submenu instead of navigating
       if (window.innerWidth <= 768) {
         e.preventDefault();
         dropdown.classList.toggle('active');
@@ -43,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = href.slice(1);
         const el = document.getElementById(id);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // close mobile menu after navigation
         if (navLinks.classList.contains('active')) navLinks.classList.remove('active');
       }
     });
@@ -53,35 +49,42 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = Array.from(document.querySelectorAll('section'));
   const productCards = Array.from(document.querySelectorAll('.product-card'));
 
+  function revealSection(sec) {
+    sec.classList.add('fade-in');
+  }
+  function revealCard(card, delay = 80) {
+    setTimeout(() => card.classList.add('visible'), delay);
+  }
+
   if ('IntersectionObserver' in window) {
     const secObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
+          revealSection(entry.target);
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     sections.forEach(s => secObserver.observe(s));
 
     const cardObserver = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset && entry.target.dataset.delay ? Number(entry.target.dataset.delay) : 80);
+          const delay = entry.target.dataset && entry.target.dataset.delay ? Number(entry.target.dataset.delay) : 80;
+          revealCard(entry.target, delay);
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     productCards.forEach((card, i) => {
       card.dataset.delay = i * 60;
       cardObserver.observe(card);
     });
   } else {
-    // fallback: reveal all
-    sections.forEach(s => s.classList.add('fade-in'));
-    productCards.forEach(c => c.classList.add('visible'));
+    sections.forEach(s => revealSection(s));
+    productCards.forEach(c => revealCard(c));
   }
 
   /* ---------- BUY BUTTON: copy product info + open Instagram ---------- */
@@ -137,37 +140,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   buyButtons.forEach(btn => {
-    btn.addEventListener('click', async (e) => {
+    btn.addEventListener('click', async () => {
       const product = btn.getAttribute('data-product') || btn.closest('.product-card')?.querySelector('h3')?.innerText || 'product';
       const message = `Hi Nawwar, I want to buy ${product} (50ml) — 258 EGP.`;
-      try {
-        await copyToClipboard(message);
-        showToast('Product info copied — opening Instagram');
-      } catch (err) {
-        showToast('Opening Instagram (copy to clipboard failed)');
-      }
+      try { await copyToClipboard(message); showToast('Product info copied — opening Instagram'); }
+      catch { showToast('Opening Instagram (copy to clipboard failed)'); }
       window.open(instaUrl, '_blank', 'noopener');
     });
   });
 
   /* ---------- MOBILE / CHROME FIX: Ensure sections + images display properly ---------- */
-  function fixProductImages() {
+  function fixProductRendering() {
     const imgs = document.querySelectorAll('.product-card img');
     imgs.forEach(img => {
       img.style.width = '100%';
       img.style.height = 'auto';
-      img.style.maxHeight = 'none'; // prevent Chrome crop
-      img.style.objectFit = 'contain'; // show whole image
+      img.style.maxHeight = 'none';
+      img.style.objectFit = 'contain';
       img.style.display = 'block';
     });
-    // Chrome mobile rendering fix: force minimal height for sections
     sections.forEach(sec => {
-      if (window.getComputedStyle(sec).display !== 'none') {
+      const comp = window.getComputedStyle(sec);
+      if (comp.display !== 'none' && parseFloat(comp.minHeight) === 0) {
         sec.style.minHeight = '50px';
       }
     });
   }
-  fixProductImages();
-  window.addEventListener('resize', fixProductImages);
+
+  // Run on load + resize + after images fully load
+  fixProductRendering();
+  window.addEventListener('resize', fixProductRendering);
+  window.addEventListener('load', fixProductRendering);
 
 }); // DOMContentLoaded end
+
